@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Diagnóstico empresarial</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#18181b;background:#f4f4f5;line-height:1.5}
+*{box-sizing:border-box}
+h1,h2,h3,h4,p{margin:0}
+a{color:#1d4ed8}a:hover{color:#1e3a8a}
+.wrap{max-width:960px;margin-left:auto;margin-right:auto;padding-left:24px;padding-right:24px}
+.logo{display:inline-flex;align-items:center;justify-content:center;width:112px;height:40px;border:2px solid #18181b;border-radius:4px;color:#18181b;text-decoration:none;font-weight:800;letter-spacing:.14em;font-size:13px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;border-radius:6px;background:#1d4ed8;color:#ffffff;border:1px solid #1d4ed8;text-decoration:none;font:inherit;font-size:15px;font-weight:600;cursor:pointer}
+.btn:hover{background:#1e3a8a;color:#ffffff}
+.btn2{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;border-radius:6px;background:#ffffff;color:#18181b;border:1px solid #a1a1aa;text-decoration:none;font:inherit;font-size:15px;font-weight:600;cursor:pointer}
+.btn2:hover{background:#f4f4f5;color:#18181b}
+.ph{display:flex;align-items:center;justify-content:center;text-align:center;padding:8px;color:#52525b;font-size:13px;background-color:#ececee;background-image:repeating-linear-gradient(45deg,transparent 0 14px,rgba(0,0,0,.05) 14px 28px);border:1px dashed #a1a1aa;border-radius:6px}
+.card{border:1px solid #d4d4d8;border-radius:10px;background:#ffffff}
+.tag{display:inline-block;padding:2px 10px;border-radius:999px;background:#f4f4f5;border:1px solid #d4d4d8;font-size:12px;color:#3f3f46}
+.muted{color:#52525b}
+.field{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600}
+.field input,.field select{min-height:44px;padding:10px 12px;border:1px solid #a1a1aa;border-radius:6px;font:inherit;font-size:15px;font-weight:400;background:#ffffff;color:#18181b}
+fieldset{border:0;padding:0;margin:0}
+legend{font-size:15px;font-weight:600;margin-bottom:10px;padding:0}
+.scale{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.scale label{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:56px;border:1px solid #a1a1aa;border-radius:8px;font-size:13px;cursor:pointer;background:#ffffff}
+.scale label:hover{border-color:#1d4ed8}
+.chk{display:flex;align-items:center;gap:10px;min-height:44px;padding:0 12px;border:1px solid #d4d4d8;border-radius:8px;font-size:15px;background:#ffffff}
+.chk input{width:18px;height:18px}
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;list-style:none;margin:0;padding:0}
+.steps li{font-size:13px;color:#52525b;display:flex;flex-direction:column;gap:6px}
+.steps li span.bar{height:6px;border-radius:999px;background:#d4d4d8}
+.steps li.on{color:#18181b;font-weight:700}
+.steps li.on span.bar{background:#1d4ed8}
+.bar2{height:10px;border-radius:999px;background:#e4e4e7;overflow:hidden}
+.bar2 span{display:block;height:100%;background:#52525b}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#f4f4f5">
+<header style="border-bottom:1px solid #d4d4d8;background:#ffffff">
+<div class="wrap" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-top:14px;padding-bottom:14px;max-width:1200px">
+<a href="Main.dc.html" class="logo" aria-label="Inicio">LOGO</a>
+<div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap"><a href="Ayuda.dc.html" style="font-size:14px">¿Necesitas ayuda?</a><a href="Main.dc.html" class="btn2">Salir del diagnóstico</a></div>
+</div>
+</header>
+
+<main class="wrap" style="padding-top:36px;padding-bottom:56px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:6px">
+<span class="tag" style="align-self:flex-start">Gratuito · [N] minutos</span>
+<h1 style="font-size:32px;line-height:1.2;font-weight:800">Diagnóstico empresarial</h1>
+<p class="muted">Evalúa 6 áreas de tu empresa y recibe recomendaciones del catálogo. Tus respuestas se guardan si inicias sesión.</p>
+</div>
+
+<ol class="steps" aria-label="Progreso">
+<sc-for list="{{steps}}" as="st" hint-placeholder-count="5">
+<li class="{{st.cls}}"><span class="bar" aria-hidden="true"></span>{{st.n}}. {{st.label}}</li>
+</sc-for>
+</ol>
+
+<section class="card" style="padding:28px;display:flex;flex-direction:column;gap:22px">
+<sc-if value="{{s0}}" hint-placeholder-val="{{ true }}">
+<h2 style="font-size:22px">Paso 1 · Datos de tu empresa</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+<label class="field">Nombre de la empresa<input type="text" placeholder="[Razón social]"></label>
+<label class="field">Industria<select><option>Selecciona…</option><option>Manufactura</option><option>Comercio minorista</option><option>Salud</option><option>Servicios financieros</option><option>Tecnología</option><option>Logística</option><option>Otra</option></select></label>
+<label class="field">Número de personas empleadas<select><option>1–10</option><option>11–50</option><option>51–250</option><option>Más de 250</option></select></label>
+<label class="field">Facturación anual aproximada<select><option>[Rango 1]</option><option>[Rango 2]</option><option>[Rango 3]</option></select></label>
+<label class="field">País / región<input type="text" placeholder="[País]"></label>
+<label class="field">Años de operación<input type="number" placeholder="0"></label>
+</div>
+</sc-if>
+
+<sc-if value="{{s1}}" hint-placeholder-val="{{ false }}">
+<h2 style="font-size:22px">Paso 2 · {{qTitle}}</h2>
+<p class="muted" style="font-size:14px">1 = muy en desacuerdo · 5 = muy de acuerdo</p>
+</sc-if>
+<sc-if value="{{s2}}" hint-placeholder-val="{{ false }}">
+<h2 style="font-size:22px">Paso 3 · {{qTitle}}</h2>
+<p class="muted" style="font-size:14px">1 = muy en desacuerdo · 5 = muy de acuerdo</p>
+</sc-if>
+<sc-if value="{{scale}}" hint-placeholder-val="{{ false }}">
+<sc-for list="{{qs}}" as="q" hint-placeholder-count="4">
+<fieldset>
+<legend>{{q.text}}</legend>
+<div class="scale">
+<label><input type="radio" name="{{q.id}}">1</label>
+<label><input type="radio" name="{{q.id}}">2</label>
+<label><input type="radio" name="{{q.id}}">3</label>
+<label><input type="radio" name="{{q.id}}">4</label>
+<label><input type="radio" name="{{q.id}}">5</label>
+</div>
+</fieldset>
+</sc-for>
+</sc-if>
+
+<sc-if value="{{s3}}" hint-placeholder-val="{{ false }}">
+<h2 style="font-size:22px">Paso 4 · Objetivos y contacto</h2>
+<fieldset>
+<legend>¿Cuáles son tus prioridades para los próximos 12 meses? (elige hasta 3)</legend>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px">
+<label class="chk"><input type="checkbox">Aumentar ventas</label>
+<label class="chk"><input type="checkbox">Reducir costos</label>
+<label class="chk"><input type="checkbox">Mejorar la liquidez</label>
+<label class="chk"><input type="checkbox">Digitalizar procesos</label>
+<label class="chk"><input type="checkbox">Ordenar la organización</label>
+<label class="chk"><input type="checkbox">Expandirme a nuevos mercados</label>
+</div>
+</fieldset>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+<label class="field">Nombre de contacto<input type="text" placeholder="[Nombre y apellido]"></label>
+<label class="field">Correo electrónico<input type="email" placeholder="nombre@empresa.com"></label>
+</div>
+<label class="chk" style="border:0;padding:0"><input type="checkbox">Acepto la <a href="Legal.dc.html">política de privacidad</a> y recibir el informe por correo.</label>
+</sc-if>
+
+<sc-if value="{{s4}}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center">
+<div style="width:140px;height:140px;border-radius:999px;border:10px solid #1d4ed8;display:flex;flex-direction:column;align-items:center;justify-content:center"><strong style="font-size:30px">[XX]</strong><span class="muted" style="font-size:12px">de 100</span></div>
+<div style="flex:1 1 360px;display:flex;flex-direction:column;gap:6px">
+<span class="tag" style="align-self:flex-start">Resultado</span>
+<h2 style="font-size:24px">Nivel de madurez: [Intermedio]</h2>
+<p class="muted">Tu empresa tiene una base sólida en [área fuerte], pero hay oportunidades claras en [área 1] y [área 2].</p>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px 32px">
+<sc-for list="{{areas}}" as="a" hint-placeholder-count="6">
+<div style="display:flex;flex-direction:column;gap:6px"><div style="display:flex;justify-content:space-between;font-size:14px"><strong>{{a.name}}</strong><span class="muted">[X]/5</span></div><div class="bar2"><span style="width: {{a.w}}"></span></div></div>
+</sc-for>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<h3 style="font-size:18px">Soluciones recomendadas para ti</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+<a href="Servicio.dc.html" class="card" style="padding:16px;text-decoration:none;color:#18181b;display:flex;flex-direction:column;gap:6px"><span class="tag" style="align-self:flex-start">Prioridad alta</span><strong>Finanzas y control de gestión</strong><span style="color:#1d4ed8;font-size:14px;font-weight:600">Ver servicio →</span></a>
+<a href="Servicio.dc.html" class="card" style="padding:16px;text-decoration:none;color:#18181b;display:flex;flex-direction:column;gap:6px"><span class="tag" style="align-self:flex-start">Prioridad alta</span><strong>Transformación digital</strong><span style="color:#1d4ed8;font-size:14px;font-weight:600">Ver servicio →</span></a>
+<a href="Servicio.dc.html" class="card" style="padding:16px;text-decoration:none;color:#18181b;display:flex;flex-direction:column;gap:6px"><span class="tag" style="align-self:flex-start">Prioridad media</span><strong>Marketing y ventas</strong><span style="color:#1d4ed8;font-size:14px;font-weight:600">Ver servicio →</span></a>
+</div>
+</div>
+<div style="display:flex;gap:10px;flex-wrap:wrap;border-top:1px solid #e4e4e7;padding-top:20px">
+<a href="Solicitud.dc.html" class="btn">Solicitar asesoría con este diagnóstico</a>
+<a href="Login.dc.html" class="btn2">Crear cuenta y guardar resultado</a>
+<a href="Diagnostico.dc.html" class="btn2">Descargar informe (PDF)</a>
+</div>
+</sc-if>
+
+<sc-if value="{{showNav}}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid #e4e4e7;padding-top:20px">
+<button type="button" class="btn2" onClick="{{back}}" disabled="{{first}}">← Anterior</button>
+<div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center"><span class="muted" style="font-size:13px">Se guarda automáticamente</span><button type="button" class="btn" onClick="{{next}}">{{nextLabel}}</button></div>
+</div>
+</sc-if>
+<sc-if value="{{s4}}" hint-placeholder-val="{{ false }}">
+<button type="button" class="btn2" style="align-self:flex-start" onClick="{{restart}}">Repetir diagnóstico</button>
+</sc-if>
+</section>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const step = (this.state && this.state.step) || 0;
+    const labels = ['Empresa', 'Estrategia y finanzas', 'Operaciones y digital', 'Objetivos', 'Resultado'];
+    const q1 = [
+      { id: 'q11', text: 'Contamos con un plan estratégico escrito y actualizado.' },
+      { id: 'q12', text: 'Conocemos nuestro flujo de caja de los próximos 3 meses.' },
+      { id: 'q13', text: 'Medimos la rentabilidad por producto o cliente.' },
+      { id: 'q14', text: 'Tenemos un presupuesto anual y lo revisamos cada mes.' }
+    ];
+    const q2 = [
+      { id: 'q21', text: 'Nuestros procesos clave están documentados.' },
+      { id: 'q22', text: 'Usamos software de gestión (ERP, CRM) en el día a día.' },
+      { id: 'q23', text: 'Tomamos decisiones con indicadores y tableros.' },
+      { id: 'q24', text: 'El equipo tiene roles y responsabilidades claras.' }
+    ];
+    return {
+      steps: labels.map((l, i) => ({ n: String(i + 1), label: l, cls: i <= step ? 'on' : '' })),
+      s0: step === 0, s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4,
+      scale: step === 1 || step === 2,
+      qTitle: step === 1 ? 'Estrategia y finanzas' : 'Operaciones, digital y personas',
+      qs: step === 1 ? q1 : q2,
+      areas: [
+        { name: 'Estrategia', w: '70%' }, { name: 'Finanzas', w: '40%' }, { name: 'Comercial', w: '55%' },
+        { name: 'Operaciones', w: '65%' }, { name: 'Digital', w: '35%' }, { name: 'Personas', w: '60%' }
+      ],
+      showNav: step < 4,
+      first: step === 0,
+      nextLabel: step === 3 ? 'Ver resultado' : 'Siguiente →',
+      next: () => this.setState({ step: Math.min(4, step + 1) }),
+      back: () => this.setState({ step: Math.max(0, step - 1) }),
+      restart: () => this.setState({ step: 0 })
+    };
+  }
+}
+</script>
+</body>
+</html>

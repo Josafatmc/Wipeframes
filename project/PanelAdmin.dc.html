@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Panel de administración</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#18181b;background:#f4f4f5;line-height:1.5}
+*{box-sizing:border-box}
+h1,h2,h3,h4,p{margin:0}
+a{color:#1d4ed8}a:hover{color:#1e3a8a}
+.logo{display:inline-flex;align-items:center;justify-content:center;width:112px;height:40px;border:2px solid #18181b;border-radius:4px;color:#18181b;text-decoration:none;font-weight:800;letter-spacing:.14em;font-size:13px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:6px;background:#1d4ed8;color:#ffffff;border:1px solid #1d4ed8;text-decoration:none;font:inherit;font-size:14px;font-weight:600;cursor:pointer}
+.btn:hover{background:#1e3a8a;color:#ffffff}
+.btn2{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:6px;background:#ffffff;color:#18181b;border:1px solid #a1a1aa;text-decoration:none;font:inherit;font-size:14px;font-weight:600;cursor:pointer}
+.btn2:hover{background:#f4f4f5;color:#18181b}
+.ph{display:flex;align-items:center;justify-content:center;text-align:center;padding:8px;color:#52525b;font-size:13px;background-color:#ececee;background-image:repeating-linear-gradient(45deg,transparent 0 14px,rgba(0,0,0,.05) 14px 28px);border:1px dashed #a1a1aa;border-radius:6px}
+.card{border:1px solid #d4d4d8;border-radius:10px;background:#ffffff}
+.tag{display:inline-block;padding:2px 10px;border-radius:999px;background:#f4f4f5;border:1px solid #d4d4d8;font-size:12px;color:#3f3f46;white-space:nowrap}
+.tag.blue{background:#eff6ff;border-color:#1d4ed8;color:#1e3a8a}
+.tag.dark{background:#18181b;border-color:#18181b;color:#ffffff}
+.tag.warn{background:#fff7ed;border-color:#c2410c;color:#9a3412}
+.muted{color:#52525b}
+.side{display:flex;flex-direction:column;gap:2px}
+.side button{display:flex;align-items:center;gap:10px;min-height:44px;padding:0 12px;border:0;border-radius:6px;background:transparent;font:inherit;font-size:15px;text-align:left;color:#27272a;cursor:pointer;width:100%}
+.side button:hover{background:#f4f4f5}
+.side button.on{background:#18181b;color:#ffffff;font-weight:700}
+.ico{width:20px;height:20px;border-radius:4px;border:1px dashed currentColor;flex:0 0 auto;opacity:.6}
+.kpi{padding:18px;display:flex;flex-direction:column;gap:4px}
+.kpi b{font-size:28px;line-height:1.1}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:720px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid #e4e4e7;vertical-align:middle}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:#3f3f46;background:#f4f4f5}
+.tbl{overflow-x:auto;border:1px solid #d4d4d8;border-radius:10px;background:#ffffff}
+.field{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600}
+.field input,.field select,.field textarea{min-height:44px;padding:10px 12px;border:1px solid #a1a1aa;border-radius:6px;font:inherit;font-size:15px;font-weight:400;background:#ffffff;color:#18181b}
+.mini select{min-height:36px;padding:4px 8px;border:1px solid #a1a1aa;border-radius:6px;font:inherit;font-size:13px;background:#ffffff}
+.bars{display:flex;align-items:flex-end;gap:10px;height:160px;padding-top:8px;border-bottom:1px solid #a1a1aa}
+.bars span{flex:1;background:#a1a1aa;border-radius:4px 4px 0 0}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#f4f4f5">
+<header style="background:#18181b;color:#ffffff">
+<div style="max-width:1400px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px">
+<a href="Main.dc.html" class="logo" style="border-color:#ffffff;color:#ffffff" aria-label="Ir al sitio público">LOGO</a>
+<span class="tag" style="background:#ffffff;color:#18181b;border-color:#ffffff">Administración</span>
+<label class="field" style="flex:1 1 260px;max-width:420px"><span class="sr">Buscar</span><input type="search" placeholder="Buscar usuarios, solicitudes, servicios…"></label>
+<div style="display:flex;align-items:center;gap:12px;margin-left:auto;flex-wrap:wrap">
+<span style="font-size:13px">[Nombre] · Superadmin</span>
+<a href="Main.dc.html" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid #a1a1aa;border-radius:6px;color:#ffffff;text-decoration:none;font-size:14px;font-weight:600">Cerrar sesión</a>
+</div>
+</div>
+</header>
+
+<div style="max-width:1400px;margin:0 auto;padding:24px;display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start">
+<nav class="card side" style="flex:1 1 220px;padding:10px" aria-label="Menú de administración">
+<sc-for list="{{menu}}" as="m" hint-placeholder-count="8">
+<button type="button" class="{{m.cls}}" aria-current="{{m.cur}}" onClick="{{m.pick}}"><span class="ico" aria-hidden="true"></span>{{m.label}}<sc-if value="{{m.badge}}" hint-placeholder-val="{{ false }}"><span class="tag blue" style="margin-left:auto">{{m.badge}}</span></sc-if></button>
+</sc-for>
+<hr style="border:0;border-top:1px solid #e4e4e7;width:100%">
+<a href="Mapa.dc.html" style="padding:10px 12px;font-size:14px">Mapa del sitio</a>
+<a href="Main.dc.html" style="padding:10px 12px;font-size:14px">Ver sitio público</a>
+</nav>
+
+<main style="flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px">
+<div><p class="muted" style="font-size:13px">Administración / {{title}}</p><h1 style="font-size:28px;line-height:1.2">{{title}}</h1></div>
+<sc-if value="{{is.dashboard}}" hint-placeholder-val="{{ true }}"><label class="field" style="flex-direction:row;align-items:center;gap:8px">Periodo<select><option>Últimos 30 días</option><option>Trimestre</option><option>Año</option></select></label></sc-if>
+</div>
+
+<sc-if value="{{showQueue}}" hint-placeholder-val="{{ true }}">
+<sc-if value="{{is.dashboard}}" hint-placeholder-val="{{ true }}">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px">
+<div class="card kpi"><span class="muted" style="font-size:13px">Solicitudes nuevas</span><b>[N]</b><span class="muted" style="font-size:12px">vs. periodo anterior [±X]%</span></div>
+<div class="card kpi"><span class="muted" style="font-size:13px">Sin asignar</span><b>{{unassigned}}</b><span class="muted" style="font-size:12px">SLA: asignar en [N] h</span></div>
+<div class="card kpi"><span class="muted" style="font-size:13px">Proyectos activos</span><b>[N]</b></div>
+<div class="card kpi"><span class="muted" style="font-size:13px">Diagnósticos completados</span><b>[N]</b><span class="muted" style="font-size:12px">Conversión a solicitud [X]%</span></div>
+<div class="card kpi"><span class="muted" style="font-size:13px">Tickets abiertos</span><b>[N]</b></div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:16px">
+<section class="card" style="flex:2 1 420px;padding:20px;display:flex;flex-direction:column;gap:10px"><h2 style="font-size:17px">Solicitudes por semana</h2><div class="bars" aria-hidden="true"><span style="height:40%"></span><span style="height:55%"></span><span style="height:48%"></span><span style="height:70%"></span><span style="height:62%"></span><span style="height:85%"></span><span style="height:74%"></span><span style="height:90%"></span></div><p class="muted" style="font-size:12px">Gráfico de barras · datos de ejemplo</p></section>
+<section class="card" style="flex:1 1 260px;padding:20px;display:flex;flex-direction:column;gap:10px"><h2 style="font-size:17px">Embudo de conversión</h2>
+<p style="font-size:14px">Visitas → Diagnóstico <strong>[X]%</strong></p><p style="font-size:14px">Diagnóstico → Solicitud <strong>[X]%</strong></p><p style="font-size:14px">Solicitud → Proyecto <strong>[X]%</strong></p><button type="button" class="btn2" onClick="{{goReportes}}">Ver reportes</button></section>
+</div>
+</sc-if>
+<section style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px"><h2 style="font-size:18px">Cola de asignación</h2><span class="muted" style="font-size:13px">Elige asesor/a según especialidad, industria y carga</span></div>
+<sc-if value="{{is.solicitudes}}" hint-placeholder-val="{{ false }}">
+<div class="toolbar"><label class="field">Estado<select><option>Todas</option><option>Sin asignar</option><option>Asignada</option><option>Aceptada</option><option>Rechazada</option></select></label><label class="field">Servicio<select><option>Todos</option></select></label><label class="field">Industria<select><option>Todas</option></select></label><button type="button" class="btn2">Exportar CSV</button></div>
+</sc-if>
+<div class="tbl"><table>
+<thead><tr><th scope="col">Solicitud</th><th scope="col">Empresa</th><th scope="col">Servicio</th><th scope="col">Recibida</th><th scope="col">Asesor/a</th><th scope="col">Estado</th><th scope="col"><span class="sr">Acción</span></th></tr></thead>
+<tbody>
+<sc-for list="{{queue}}" as="q" hint-placeholder-count="4">
+<tr><td>{{q.id}}</td><td><strong>{{q.company}}</strong><br><span class="muted" style="font-size:12px">{{q.ind}}</span></td><td>{{q.service}}</td><td>{{q.date}}</td>
+<td><sc-if value="{{q.open}}" hint-placeholder-val="{{ true }}"><label class="mini"><span class="sr">Asesor/a para {{q.id}}</span><select><option>[Asesor/a recomendado] · carga baja</option><option>[Asesor/a 2] · carga media</option><option>[Asesor/a 3] · carga alta</option></select></label></sc-if><sc-if value="{{q.done}}" hint-placeholder-val="{{ false }}">[Asesor/a recomendado]</sc-if></td>
+<td><sc-if value="{{q.open}}" hint-placeholder-val="{{ true }}"><span class="tag warn">Sin asignar</span></sc-if><sc-if value="{{q.done}}" hint-placeholder-val="{{ false }}"><span class="tag blue">Asignada · espera aceptación</span></sc-if></td>
+<td><sc-if value="{{q.open}}" hint-placeholder-val="{{ true }}"><button type="button" class="btn" style="min-height:36px" onClick="{{q.assign}}">Asignar</button></sc-if><sc-if value="{{q.done}}" hint-placeholder-val="{{ false }}"><button type="button" class="btn2" style="min-height:36px" onClick="{{q.undo}}">Deshacer</button></sc-if></td></tr>
+</sc-for>
+</tbody></table></div>
+</section>
+</sc-if>
+
+<sc-if value="{{is.usuarios}}" hint-placeholder-val="{{ false }}">
+<div class="toolbar"><label class="field">Rol<select><option>Todos</option><option>Cliente</option><option>Asesor/a</option><option>Administración</option></select></label><label class="field">Estado<select><option>Activos</option><option>Invitados</option><option>Suspendidos</option></select></label><button type="button" class="btn" style="margin-left:auto">+ Invitar usuario</button></div>
+<div class="tbl"><table>
+<thead><tr><th scope="col">Nombre</th><th scope="col">Correo</th><th scope="col">Rol</th><th scope="col">Empresa / área</th><th scope="col">Último acceso</th><th scope="col">Estado</th><th scope="col"><span class="sr">Acción</span></th></tr></thead>
+<tbody>
+<tr><td>[Nombre Apellido]</td><td>[correo]</td><td><span class="tag">Cliente</span></td><td>[Empresa S.A.]</td><td>[FECHA]</td><td><span class="tag blue">Activo</span></td><td><button type="button" class="btn2" style="min-height:36px">Editar</button></td></tr>
+<tr><td>[Nombre Apellido]</td><td>[correo]</td><td><span class="tag">Asesor/a</span></td><td>Finanzas</td><td>[FECHA]</td><td><span class="tag blue">Activo</span></td><td><button type="button" class="btn2" style="min-height:36px">Editar</button></td></tr>
+<tr><td>[Nombre Apellido]</td><td>[correo]</td><td><span class="tag">Asesor/a</span></td><td>Digital</td><td>—</td><td><span class="tag">Invitado</span></td><td><button type="button" class="btn2" style="min-height:36px">Reenviar</button></td></tr>
+<tr><td>[Nombre Apellido]</td><td>[correo]</td><td><span class="tag dark">Admin</span></td><td>Operaciones</td><td>[FECHA]</td><td><span class="tag blue">Activo</span></td><td><button type="button" class="btn2" style="min-height:36px">Editar</button></td></tr>
+</tbody></table></div>
+</sc-if>
+
+<sc-if value="{{is.catalogo}}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start">
+<div class="tbl" style="flex:2 1 460px"><table style="min-width:520px">
+<thead><tr><th scope="col">Servicio</th><th scope="col">Área</th><th scope="col">Asesores</th><th scope="col">Estado</th><th scope="col"><span class="sr">Acción</span></th></tr></thead>
+<tbody>
+<tr><td><strong>Finanzas y control de gestión</strong></td><td>Finanzas</td><td>3</td><td><span class="tag blue">Publicado</span></td><td><a href="Servicio.dc.html">Ver</a></td></tr>
+<tr><td><strong>Transformación digital</strong></td><td>Digital</td><td>2</td><td><span class="tag blue">Publicado</span></td><td><a href="Servicio.dc.html">Ver</a></td></tr>
+<tr><td><strong>Sostenibilidad (ESG)</strong></td><td>Riesgo</td><td>0</td><td><span class="tag">Borrador</span></td><td><a href="Servicio.dc.html">Ver</a></td></tr>
+</tbody></table></div>
+<form class="card" style="flex:1 1 300px;padding:20px;display:flex;flex-direction:column;gap:12px">
+<h2 style="font-size:17px">Editar servicio</h2>
+<label class="field">Nombre<input type="text" placeholder="Finanzas y control de gestión"></label>
+<label class="field">Área<select><option>Finanzas</option></select></label>
+<label class="field">Industrias aplicables<input type="text" placeholder="Manufactura, retail…"></label>
+<label class="field">Precio desde<input type="text" placeholder="[PRECIO]"></label>
+<label class="field">Asesores habilitados<select><option>3 seleccionados</option></select></label>
+<label class="field">Imagen<input type="file"></label>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="btn">Publicar</button><button type="button" class="btn2">Guardar borrador</button></div>
+</form>
+</div>
+</sc-if>
+
+<sc-if value="{{is.contenidos}}" hint-placeholder-val="{{ false }}">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+<div class="card" style="padding:18px;display:flex;flex-direction:column;gap:8px"><strong>Industrias</strong><p class="muted" style="font-size:14px">8 publicadas</p><a href="Industrias.dc.html" class="btn2">Gestionar</a></div>
+<div class="card" style="padding:18px;display:flex;flex-direction:column;gap:8px"><strong>Casos de éxito</strong><p class="muted" style="font-size:14px">[N] publicados · 1 borrador</p><a href="Casos.dc.html" class="btn2">Gestionar</a></div>
+<div class="card" style="padding:18px;display:flex;flex-direction:column;gap:8px"><strong>Recursos y blog</strong><p class="muted" style="font-size:14px">[N] artículos · [N] plantillas</p><a href="Recursos.dc.html" class="btn2">Gestionar</a></div>
+<div class="card" style="padding:18px;display:flex;flex-direction:column;gap:8px"><strong>Preguntas frecuentes</strong><p class="muted" style="font-size:14px">[N] preguntas en 6 categorías</p><a href="Ayuda.dc.html" class="btn2">Gestionar</a></div>
+<div class="card" style="padding:18px;display:flex;flex-direction:column;gap:8px"><strong>Diagnóstico</strong><p class="muted" style="font-size:14px">Preguntas, pesos y reglas de recomendación</p><a href="Diagnostico.dc.html" class="btn2">Configurar</a></div>
+<div class="card" style="padding:18px;display:flex;flex-direction:column;gap:8px"><strong>Páginas legales</strong><p class="muted" style="font-size:14px">Versionado y fecha de vigencia</p><a href="Legal.dc.html" class="btn2">Gestionar</a></div>
+</div>
+</sc-if>
+
+<sc-if value="{{is.soporte}}" hint-placeholder-val="{{ false }}">
+<div class="toolbar"><label class="field">Cola<select><option>Sin responder</option><option>En curso</option><option>Resueltos</option></select></label><label class="field">Prioridad<select><option>Todas</option><option>Urgente</option><option>Alta</option></select></label></div>
+<div class="tbl"><table>
+<thead><tr><th scope="col">Ticket</th><th scope="col">Asunto</th><th scope="col">Solicitante</th><th scope="col">Prioridad</th><th scope="col">Responsable</th><th scope="col">SLA</th><th scope="col"><span class="sr">Acción</span></th></tr></thead>
+<tbody>
+<tr><td>#[T-1042]</td><td>No puedo descargar el informe</td><td>[Empresa S.A.]</td><td><span class="tag warn">Alta</span></td><td>[Agente]</td><td>[N] h restantes</td><td><a href="Ayuda.dc.html">Abrir</a></td></tr>
+<tr><td>#[T-1045]</td><td>Consulta sobre facturación</td><td>Visitante</td><td><span class="tag">Normal</span></td><td>—</td><td>[N] h restantes</td><td><a href="Ayuda.dc.html">Abrir</a></td></tr>
+</tbody></table></div>
+</sc-if>
+
+<sc-if value="{{is.reportes}}" hint-placeholder-val="{{ false }}">
+<div class="toolbar"><label class="field">Reporte<select><option>Solicitudes y conversión</option><option>Desempeño de asesores</option><option>Ingresos por servicio</option><option>Satisfacción (NPS)</option></select></label><label class="field">Desde<input type="date"></label><label class="field">Hasta<input type="date"></label><button type="button" class="btn2">Exportar</button></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px">
+<div class="ph" style="height:220px">Gráfico: ingresos por servicio</div>
+<div class="ph" style="height:220px">Gráfico: carga y valoración por asesor/a</div>
+<div class="ph" style="height:220px">Gráfico: solicitudes por industria</div>
+<div class="ph" style="height:220px">Gráfico: tiempo medio de asignación</div>
+</div>
+</sc-if>
+
+<sc-if value="{{is.configuracion}}" hint-placeholder-val="{{ false }}">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
+<section class="card" style="padding:20px;display:flex;flex-direction:column;gap:12px"><h2 style="font-size:17px">General</h2><label class="field">Nombre de la plataforma<input type="text" placeholder="[NOMBRE]"></label><label class="field">Zona horaria<select><option>[GMT-5]</option></select></label><label class="field">Moneda<select><option>[MONEDA]</option></select></label></section>
+<section class="card" style="padding:20px;display:flex;flex-direction:column;gap:12px"><h2 style="font-size:17px">Roles y permisos</h2><p class="muted" style="font-size:14px">Cliente · Asesor/a · Administración · Soporte</p><a href="Mapa.dc.html" class="btn2">Ver matriz de permisos</a></section>
+<section class="card" style="padding:20px;display:flex;flex-direction:column;gap:12px"><h2 style="font-size:17px">Integraciones</h2><p style="font-size:14px">Calendario · Videollamadas · Pasarela de pago · Correo transaccional · CRM</p><button type="button" class="btn2">Gestionar integraciones</button></section>
+<section class="card" style="padding:20px;display:flex;flex-direction:column;gap:12px"><h2 style="font-size:17px">Notificaciones y SLA</h2><label class="field">Tiempo máximo de asignación<select><option>[N] horas</option></select></label><label class="field">Recordatorio de sesión<select><option>24 h antes</option></select></label></section>
+</div>
+<button type="button" class="btn" style="align-self:flex-start">Guardar configuración</button>
+</sc-if>
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.state || {};
+    const sec = st.sec || 'dashboard';
+    const asg = st.asg || {};
+    const base = [
+      { id: '#[SOL-0233]', company: '[Empresa G]', ind: 'Logística', service: 'Optimización de procesos', date: 'hace 2 h' },
+      { id: '#[SOL-0232]', company: '[Empresa H]', ind: 'Salud', service: 'Cumplimiento normativo', date: 'hace 5 h' },
+      { id: '#[SOL-0231]', company: '[Empresa S.A.]', ind: 'Manufactura', service: 'Transformación digital', date: 'ayer' },
+      { id: '#[SOL-0230]', company: '[Empresa I]', ind: 'Retail', service: 'Marketing y ventas', date: 'ayer' }
+    ];
+    const set = (id, v) => () => this.setState({ asg: Object.assign({}, asg, { [id]: v }) });
+    const queue = base.map((q) => Object.assign({}, q, { open: !asg[q.id], done: !!asg[q.id], assign: set(q.id, true), undo: set(q.id, false) }));
+    const unassigned = queue.filter((q) => q.open).length;
+    const items = [
+      { id: 'dashboard', label: 'Dashboard' }, { id: 'solicitudes', label: 'Solicitudes', badge: unassigned ? String(unassigned) : '' },
+      { id: 'usuarios', label: 'Usuarios y roles' }, { id: 'catalogo', label: 'Catálogo de servicios' },
+      { id: 'contenidos', label: 'Contenidos' }, { id: 'soporte', label: 'Soporte (tickets)' },
+      { id: 'reportes', label: 'Reportes' }, { id: 'configuracion', label: 'Configuración' }
+    ];
+    const go = (id) => () => this.setState({ sec: id });
+    const is = {};
+    items.forEach((i) => { is[i.id] = i.id === sec; });
+    return {
+      menu: items.map((i) => ({ label: i.label, badge: i.badge || '', cls: i.id === sec ? 'on' : '', cur: i.id === sec ? 'page' : 'false', pick: go(i.id) })),
+      is: is,
+      showQueue: sec === 'dashboard' || sec === 'solicitudes',
+      title: items.find((i) => i.id === sec).label,
+      queue: queue,
+      unassigned: String(unassigned),
+      goReportes: go('reportes')
+    };
+  }
+}
+</script>
+</body>
+</html>

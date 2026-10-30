@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Panel de la persona asesora</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#18181b;background:#f4f4f5;line-height:1.5}
+*{box-sizing:border-box}
+h1,h2,h3,h4,p{margin:0}
+a{color:#1d4ed8}a:hover{color:#1e3a8a}
+.logo{display:inline-flex;align-items:center;justify-content:center;width:112px;height:40px;border:2px solid #18181b;border-radius:4px;color:#18181b;text-decoration:none;font-weight:800;letter-spacing:.14em;font-size:13px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:6px;background:#1d4ed8;color:#ffffff;border:1px solid #1d4ed8;text-decoration:none;font:inherit;font-size:14px;font-weight:600;cursor:pointer}
+.btn:hover{background:#1e3a8a;color:#ffffff}
+.btn2{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:6px;background:#ffffff;color:#18181b;border:1px solid #a1a1aa;text-decoration:none;font:inherit;font-size:14px;font-weight:600;cursor:pointer}
+.btn2:hover{background:#f4f4f5;color:#18181b}
+.ph{display:flex;align-items:center;justify-content:center;text-align:center;padding:8px;color:#52525b;font-size:13px;background-color:#ececee;background-image:repeating-linear-gradient(45deg,transparent 0 14px,rgba(0,0,0,.05) 14px 28px);border:1px dashed #a1a1aa;border-radius:6px}
+.card{border:1px solid #d4d4d8;border-radius:10px;background:#ffffff}
+.tag{display:inline-block;padding:2px 10px;border-radius:999px;background:#f4f4f5;border:1px solid #d4d4d8;font-size:12px;color:#3f3f46;white-space:nowrap}
+.tag.blue{background:#eff6ff;border-color:#1d4ed8;color:#1e3a8a}
+.tag.dark{background:#18181b;border-color:#18181b;color:#ffffff}
+.muted{color:#52525b}
+.side{display:flex;flex-direction:column;gap:2px}
+.side button{display:flex;align-items:center;gap:10px;min-height:44px;padding:0 12px;border:0;border-radius:6px;background:transparent;font:inherit;font-size:15px;text-align:left;color:#27272a;cursor:pointer;width:100%}
+.side button:hover{background:#f4f4f5}
+.side button.on{background:#18181b;color:#ffffff;font-weight:700}
+.ico{width:20px;height:20px;border-radius:4px;border:1px dashed currentColor;flex:0 0 auto;opacity:.6}
+.kpi{padding:18px;display:flex;flex-direction:column;gap:4px}
+.kpi b{font-size:28px;line-height:1.1}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:620px}
+th,td{text-align:left;padding:12px;border-bottom:1px solid #e4e4e7;vertical-align:middle}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:#3f3f46;background:#f4f4f5}
+.tbl{overflow-x:auto;border:1px solid #d4d4d8;border-radius:10px;background:#ffffff}
+.field{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600}
+.field input,.field select,.field textarea{min-height:44px;padding:10px 12px;border:1px solid #a1a1aa;border-radius:6px;font:inherit;font-size:15px;font-weight:400;background:#ffffff;color:#18181b}
+.cal{display:grid;grid-template-columns:64px repeat(5,minmax(110px,1fr));min-width:680px;font-size:13px}
+.cal div{border-bottom:1px solid #e4e4e7;border-right:1px solid #e4e4e7;min-height:52px;padding:6px}
+.cal .hd{font-weight:700;background:#f4f4f5;min-height:40px}
+.ev{display:block;border-radius:6px;padding:4px 6px;background:#eff6ff;border-left:3px solid #1d4ed8;font-size:12px}
+.ev.alt{background:#f4f4f5;border-left-color:#52525b}
+.slotg{display:grid;grid-template-columns:80px repeat(5,minmax(70px,1fr));gap:6px;min-width:520px;font-size:13px;align-items:center}
+.slotg label{display:flex;align-items:center;justify-content:center;min-height:40px;border:1px solid #d4d4d8;border-radius:6px;background:#ffffff}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#f4f4f5">
+<header style="background:#ffffff;border-bottom:1px solid #d4d4d8">
+<div style="max-width:1400px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px">
+<a href="Main.dc.html" class="logo" aria-label="Ir al sitio público">LOGO</a>
+<span class="tag dark">Panel de asesor/a</span>
+<label class="field" style="flex:1 1 260px;max-width:420px"><span class="sr">Buscar</span><input type="search" placeholder="Buscar clientes, solicitudes, informes…"></label>
+<div style="display:flex;align-items:center;gap:12px;margin-left:auto;flex-wrap:wrap">
+<button type="button" class="btn2" aria-label="Notificaciones, 2 nuevas">Notificaciones <span class="tag blue">2</span></button>
+<div style="display:flex;align-items:center;gap:8px"><div class="ph" style="width:40px;height:40px;border-radius:999px;padding:0">AS</div><div style="font-size:13px;line-height:1.3"><strong>[Nombre Apellido]</strong><br><span class="muted">Asesor/a · Finanzas</span></div></div>
+<a href="Main.dc.html" class="btn2">Cerrar sesión</a>
+</div>
+</div>
+</header>
+
+<div style="max-width:1400px;margin:0 auto;padding:24px;display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start">
+<nav class="card side" style="flex:1 1 220px;padding:10px" aria-label="Menú del asesor">
+<sc-for list="{{menu}}" as="m" hint-placeholder-count="7">
+<button type="button" class="{{m.cls}}" aria-current="{{m.cur}}" onClick="{{m.pick}}"><span class="ico" aria-hidden="true"></span>{{m.label}}<sc-if value="{{m.badge}}" hint-placeholder-val="{{ false }}"><span class="tag blue" style="margin-left:auto">{{m.badge}}</span></sc-if></button>
+</sc-for>
+<hr style="border:0;border-top:1px solid #e4e4e7;width:100%">
+<a href="Ayuda.dc.html" style="padding:10px 12px;font-size:14px">Centro de atención</a>
+</nav>
+
+<main style="flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px">
+<div><p class="muted" style="font-size:13px">Asesor/a / {{title}}</p><h1 style="font-size:28px;line-height:1.2">{{title}}</h1></div>
+</div>
+
+<sc-if value="{{is.agenda}}" hint-placeholder-val="{{ true }}">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px">
+<div class="card kpi"><span class="muted" style="font-size:13px">Sesiones hoy</span><b>3</b></div>
+<div class="card kpi"><span class="muted" style="font-size:13px">Solicitudes por responder</span><b>{{pending}}</b></div>
+<div class="card kpi"><span class="muted" style="font-size:13px">Clientes activos</span><b>[N]</b></div>
+<div class="card kpi"><span class="muted" style="font-size:13px">Valoración media</span><b>[4,8]</b></div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start">
+<section class="card" style="flex:3 1 520px;min-width:0;padding:16px;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px"><h2 style="font-size:18px">Semana del [DD] al [DD]</h2><div style="display:flex;gap:6px"><button type="button" class="btn2" style="min-height:36px" aria-label="Semana anterior">‹</button><button type="button" class="btn2" style="min-height:36px">Hoy</button><button type="button" class="btn2" style="min-height:36px" aria-label="Semana siguiente">›</button></div></div>
+<div style="overflow-x:auto"><div class="cal">
+<div class="hd"></div><div class="hd">Lun</div><div class="hd">Mar</div><div class="hd">Mié</div><div class="hd">Jue</div><div class="hd">Vie</div>
+<div class="muted">09:00</div><div></div><div><span class="ev">[Cliente A] · Seguimiento</span></div><div></div><div></div><div><span class="ev alt">Bloqueado</span></div>
+<div class="muted">10:00</div><div><span class="ev">[Empresa S.A.] · Flujo de caja</span></div><div></div><div><span class="ev">[Cliente C] · Kickoff</span></div><div></div><div></div>
+<div class="muted">11:30</div><div></div><div></div><div></div><div><span class="ev">[Cliente B] · Presupuesto</span></div><div></div>
+<div class="muted">15:00</div><div><span class="ev">[Cliente D] · Diagnóstico</span></div><div></div><div></div><div></div><div><span class="ev">[Cliente A] · Cierre</span></div>
+<div class="muted">16:30</div><div></div><div><span class="ev alt">Interna</span></div><div></div><div><span class="ev">[Empresa S.A.] · Presentación</span></div><div></div>
+</div></div>
+</section>
+<section class="card" style="flex:1 1 260px;padding:20px;display:flex;flex-direction:column;gap:12px">
+<h2 style="font-size:18px">Hoy</h2>
+<div style="display:flex;flex-direction:column;gap:4px;padding-bottom:10px;border-bottom:1px solid #e4e4e7"><strong>10:00 · [Empresa S.A.]</strong><span class="muted" style="font-size:14px">Revisión flujo de caja · Videollamada</span><div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px"><a href="Main.dc.html" class="btn" style="min-height:36px">Iniciar</a><button type="button" class="btn2" style="min-height:36px" onClick="{{goInformes}}">Notas</button></div></div>
+<div style="display:flex;flex-direction:column;gap:4px;padding-bottom:10px;border-bottom:1px solid #e4e4e7"><strong>15:00 · [Cliente D]</strong><span class="muted" style="font-size:14px">Lectura de diagnóstico · Llamada</span></div>
+<button type="button" class="btn2" onClick="{{goDisp}}">Gestionar disponibilidad</button>
+</section>
+</div>
+</sc-if>
+
+<sc-if value="{{is.solicitudes}}" hint-placeholder-val="{{ false }}">
+<p class="muted">Solicitudes asignadas por Administración. Acepta para confirmar la primera sesión o rechaza indicando el motivo (vuelve a la cola de asignación).</p>
+<sc-for list="{{reqs}}" as="r" hint-placeholder-count="3">
+<article class="card" style="padding:20px;display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start;justify-content:space-between">
+<div style="flex:1 1 380px;display:flex;flex-direction:column;gap:6px">
+<div style="display:flex;gap:6px;flex-wrap:wrap"><span class="tag">{{r.id}}</span><span class="tag">{{r.ind}}</span><span class="tag">Urgencia: {{r.urg}}</span></div>
+<strong style="font-size:17px">{{r.company}} · {{r.service}}</strong>
+<p class="muted" style="font-size:14px">«[Resumen de la necesidad escrita por el cliente]» · Diagnóstico adjunto: [XX]/100</p>
+<p style="font-size:14px">Sesión propuesta: <strong>{{r.slot}}</strong></p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+<sc-if value="{{r.open}}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="btn" onClick="{{r.accept}}">Aceptar y confirmar</button><button type="button" class="btn2">Proponer otro horario</button><button type="button" class="btn2" onClick="{{r.reject}}">Rechazar</button></div>
+</sc-if>
+<sc-if value="{{r.accepted}}" hint-placeholder-val="{{ false }}"><span class="tag blue">Aceptada · sesión confirmada</span></sc-if>
+<sc-if value="{{r.rejected}}" hint-placeholder-val="{{ false }}"><span class="tag">Rechazada · devuelta a Administración</span></sc-if>
+</div>
+</article>
+</sc-for>
+</sc-if>
+
+<sc-if value="{{is.clientes}}" hint-placeholder-val="{{ false }}">
+<div class="tbl"><table>
+<thead><tr><th scope="col">Cliente</th><th scope="col">Proyecto</th><th scope="col">Fase</th><th scope="col">Próxima sesión</th><th scope="col">Estado</th><th scope="col"><span class="sr">Acción</span></th></tr></thead>
+<tbody>
+<tr><td><strong>[Empresa S.A.]</strong></td><td>Finanzas y control de gestión</td><td>2 de 4</td><td>[Lun DD] 10:00</td><td><span class="tag blue">En curso</span></td><td><button type="button" class="btn2" style="min-height:36px" onClick="{{goInformes}}">Abrir</button></td></tr>
+<tr><td><strong>[Cliente A]</strong></td><td>Control de costos</td><td>4 de 4</td><td>[Vie DD] 15:00</td><td><span class="tag blue">Cierre</span></td><td><button type="button" class="btn2" style="min-height:36px" onClick="{{goInformes}}">Abrir</button></td></tr>
+<tr><td><strong>[Cliente B]</strong></td><td>Presupuesto anual</td><td>3 de 4</td><td>[Jue DD] 11:30</td><td><span class="tag">En riesgo</span></td><td><button type="button" class="btn2" style="min-height:36px" onClick="{{goInformes}}">Abrir</button></td></tr>
+</tbody></table></div>
+</sc-if>
+
+<sc-if value="{{is.informes}}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start">
+<form class="card" style="flex:1 1 360px;padding:20px;display:flex;flex-direction:column;gap:14px">
+<h2 style="font-size:18px">Registrar sesión / subir entregable</h2>
+<label class="field">Cliente y proyecto<select><option>[Empresa S.A.] · Finanzas</option><option>[Cliente A] · Control de costos</option></select></label>
+<label class="field">Tipo<select><option>Acta de sesión</option><option>Informe</option><option>Entregable final</option></select></label>
+<label class="field">Notas y acuerdos<textarea rows="4" placeholder="Resumen, acuerdos y próximos pasos"></textarea></label>
+<label class="field">Archivo<input type="file"></label>
+<label class="field">Actualizar fase del proyecto<select><option>2 · Análisis</option><option>3 · Implementación</option></select></label>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="btn">Publicar al cliente</button><button type="button" class="btn2">Guardar borrador</button></div>
+</form>
+<section class="card" style="flex:1 1 300px;padding:20px;display:flex;flex-direction:column;gap:8px">
+<h2 style="font-size:18px">Publicados recientemente</h2>
+<p style="font-size:14px">Informe de diagnóstico.pdf<br><span class="muted" style="font-size:12px">[Empresa S.A.] · [FECHA] · Visto por el cliente</span></p>
+<p style="font-size:14px">Acta sesión 3<br><span class="muted" style="font-size:12px">[Cliente A] · [FECHA] · No visto</span></p>
+</section>
+</div>
+</sc-if>
+
+<sc-if value="{{is.disponibilidad}}" hint-placeholder-val="{{ false }}">
+<section class="card" style="padding:20px;display:flex;flex-direction:column;gap:14px">
+<p class="muted" style="font-size:14px">Marca los bloques en los que los clientes pueden reservar. Se sincroniza con [calendario externo].</p>
+<div style="overflow-x:auto"><div class="slotg">
+<strong></strong><strong>Lun</strong><strong>Mar</strong><strong>Mié</strong><strong>Jue</strong><strong>Vie</strong>
+<span class="muted">09:00</span><label><input type="checkbox"><span class="sr">Lun 09:00</span></label><label><input type="checkbox"><span class="sr">Mar 09:00</span></label><label><input type="checkbox"><span class="sr">Mié 09:00</span></label><label><input type="checkbox"><span class="sr">Jue 09:00</span></label><label><input type="checkbox"><span class="sr">Vie 09:00</span></label>
+<span class="muted">11:00</span><label><input type="checkbox"><span class="sr">Lun 11:00</span></label><label><input type="checkbox"><span class="sr">Mar 11:00</span></label><label><input type="checkbox"><span class="sr">Mié 11:00</span></label><label><input type="checkbox"><span class="sr">Jue 11:00</span></label><label><input type="checkbox"><span class="sr">Vie 11:00</span></label>
+<span class="muted">15:00</span><label><input type="checkbox"><span class="sr">Lun 15:00</span></label><label><input type="checkbox"><span class="sr">Mar 15:00</span></label><label><input type="checkbox"><span class="sr">Mié 15:00</span></label><label><input type="checkbox"><span class="sr">Jue 15:00</span></label><label><input type="checkbox"><span class="sr">Vie 15:00</span></label>
+<span class="muted">17:00</span><label><input type="checkbox"><span class="sr">Lun 17:00</span></label><label><input type="checkbox"><span class="sr">Mar 17:00</span></label><label><input type="checkbox"><span class="sr">Mié 17:00</span></label><label><input type="checkbox"><span class="sr">Jue 17:00</span></label><label><input type="checkbox"><span class="sr">Vie 17:00</span></label>
+</div></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
+<label class="field">Duración por sesión<select><option>60 min</option><option>45 min</option><option>90 min</option></select></label>
+<label class="field">Ausencias / vacaciones<input type="text" placeholder="[DD/MM] – [DD/MM]"></label>
+</div>
+<button type="button" class="btn" style="align-self:flex-start">Guardar disponibilidad</button>
+</section>
+</sc-if>
+
+<sc-if value="{{is.mensajes}}" hint-placeholder-val="{{ false }}">
+<div class="card" style="padding:20px;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:6px;flex-wrap:wrap"><span class="tag dark">[Empresa S.A.]</span><span class="tag">[Cliente A]</span><span class="tag">[Cliente B]</span></div>
+<div style="background:#f4f4f5;border-radius:8px;padding:12px;max-width:80%"><strong style="font-size:13px">[Cliente] · [hh:mm]</strong><p style="font-size:14px">[Mensaje del cliente]</p></div>
+<div style="background:#eff6ff;border-radius:8px;padding:12px;max-width:80%;align-self:flex-end"><strong style="font-size:13px">Tú · [hh:mm]</strong><p style="font-size:14px">[Respuesta]</p></div>
+<label class="field">Mensaje<textarea rows="3" placeholder="Escribe un mensaje…"></textarea></label>
+<button type="button" class="btn" style="align-self:flex-start">Enviar</button>
+</div>
+</sc-if>
+
+<sc-if value="{{is.perfil}}" hint-placeholder-val="{{ false }}">
+<section class="card" style="padding:24px;display:flex;flex-wrap:wrap;gap:24px">
+<div class="ph" style="width:120px;height:120px;border-radius:999px;padding:0">Foto</div>
+<div style="flex:1 1 360px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
+<label class="field">Nombre público<input type="text" placeholder="[Nombre Apellido]"></label>
+<label class="field">Especialidades<input type="text" placeholder="Finanzas, control de gestión"></label>
+<label class="field">Industrias<input type="text" placeholder="Manufactura, salud"></label>
+<label class="field">Años de experiencia<input type="number" placeholder="0"></label>
+<label class="field" style="grid-column:1 / -1">Biografía (se muestra en Nosotros y en el detalle del servicio)<textarea rows="3" placeholder="[Biografía]"></textarea></label>
+</div>
+<button type="button" class="btn">Guardar perfil</button>
+</section>
+</sc-if>
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.state || {};
+    const sec = st.sec || 'agenda';
+    const done = st.done || {};
+    const base = [
+      { id: '#[SOL-0231]', company: '[Empresa S.A.]', service: 'Transformación digital', ind: 'Manufactura', urg: 'Este mes', slot: '[Mié DD] · 11:30' },
+      { id: '#[SOL-0229]', company: '[Cliente E]', service: 'Finanzas y control de gestión', ind: 'Salud', urg: 'Esta semana', slot: '[Jue DD] · 09:00' },
+      { id: '#[SOL-0224]', company: '[Cliente F]', service: 'Finanzas y control de gestión', ind: 'Retail', urg: '3 meses', slot: '[Vie DD] · 15:00' }
+    ];
+    const setDone = (id, v) => () => this.setState({ done: Object.assign({}, done, { [id]: v }) });
+    const reqs = base.map((r) => Object.assign({}, r, {
+      open: !done[r.id], accepted: done[r.id] === 'ok', rejected: done[r.id] === 'no',
+      accept: setDone(r.id, 'ok'), reject: setDone(r.id, 'no')
+    }));
+    const pending = reqs.filter((r) => r.open).length;
+    const items = [
+      { id: 'agenda', label: 'Agenda' }, { id: 'solicitudes', label: 'Solicitudes asignadas', badge: pending ? String(pending) : '' },
+      { id: 'clientes', label: 'Mis clientes' }, { id: 'informes', label: 'Informes y entregables' },
+      { id: 'disponibilidad', label: 'Disponibilidad' }, { id: 'mensajes', label: 'Mensajes' }, { id: 'perfil', label: 'Perfil profesional' }
+    ];
+    const go = (id) => () => this.setState({ sec: id });
+    const is = {};
+    items.forEach((i) => { is[i.id] = i.id === sec; });
+    return {
+      menu: items.map((i) => ({ label: i.label, badge: i.badge || '', cls: i.id === sec ? 'on' : '', cur: i.id === sec ? 'page' : 'false', pick: go(i.id) })),
+      is: is,
+      title: items.find((i) => i.id === sec).label,
+      reqs: reqs,
+      pending: String(pending),
+      goInformes: go('informes'), goDisp: go('disponibilidad')
+    };
+  }
+}
+</script>
+</body>
+</html>
