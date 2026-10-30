@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Legal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#18181b;background:#ffffff;line-height:1.5}
+*{box-sizing:border-box}
+h1,h2,h3,h4,p{margin:0}
+a{color:#1d4ed8}a:hover{color:#1e3a8a}
+.wrap{max-width:1200px;margin-left:auto;margin-right:auto;padding-left:24px;padding-right:24px}
+.logo{display:inline-flex;align-items:center;justify-content:center;width:112px;height:40px;border:2px solid #18181b;border-radius:4px;color:#18181b;text-decoration:none;font-weight:800;letter-spacing:.14em;font-size:13px}
+.nav a{color:#27272a;text-decoration:none;font-size:15px;padding:10px 0}.nav a:hover{color:#1d4ed8}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;border-radius:6px;background:#1d4ed8;color:#ffffff;border:1px solid #1d4ed8;text-decoration:none;font:inherit;font-size:15px;font-weight:600;cursor:pointer}
+.btn:hover{background:#1e3a8a;color:#ffffff}
+.btn2{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;border-radius:6px;background:#ffffff;color:#18181b;border:1px solid #a1a1aa;text-decoration:none;font:inherit;font-size:15px;font-weight:600;cursor:pointer}
+.btn2:hover{background:#f4f4f5;color:#18181b}
+.card{border:1px solid #d4d4d8;border-radius:8px;background:#ffffff}
+.muted{color:#52525b}
+.crumbs{font-size:13px;color:#52525b;padding-top:16px}.crumbs a{color:#52525b}
+.doc{display:flex;align-items:center;width:100%;min-height:44px;padding:0 14px;border:0;border-radius:6px;background:transparent;font:inherit;font-size:15px;text-align:left;color:#27272a;cursor:pointer}
+.doc.on{background:#18181b;color:#ffffff;font-weight:700}
+.line{height:12px;border-radius:4px;background:#e4e4e7}
+.sw{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid #e4e4e7}
+.sw input{width:22px;height:22px}
+.fcol{display:flex;flex-direction:column;gap:8px;font-size:14px}.fcol a{color:#3f3f46;text-decoration:none}.fcol a:hover{color:#1d4ed8;text-decoration:underline}
+</style>
+</helmet>
+<div style="background:#ffffff">
+<header style="border-bottom:1px solid #d4d4d8;background:#ffffff">
+<div class="wrap" style="display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;padding-top:14px;padding-bottom:14px">
+<a href="Main.dc.html" class="logo" aria-label="Inicio">LOGO</a>
+<nav class="nav" aria-label="Principal" style="display:flex;flex-wrap:wrap;gap:0 22px;flex:1 1 480px">
+<a href="Catalogo.dc.html">Soluciones</a>
+<a href="Industrias.dc.html">Industrias</a>
+<a href="Diagnostico.dc.html">Diagnóstico</a>
+<a href="Casos.dc.html">Casos de éxito</a>
+<a href="Recursos.dc.html">Recursos</a>
+<a href="Nosotros.dc.html">Nosotros</a>
+<a href="Ayuda.dc.html">Ayuda</a>
+</nav>
+<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+<a href="Login.dc.html" class="btn2">Iniciar sesión</a>
+<a href="Solicitud.dc.html" class="btn">Solicitar asesoría</a>
+</div>
+</div>
+</header>
+
+<main>
+<nav class="wrap crumbs" aria-label="Ruta de navegación"><a href="Main.dc.html">Inicio</a> / Legal / {{doc.title}}</nav>
+<section class="wrap" style="padding-top:24px;display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start">
+<nav class="card" style="flex:1 1 240px;padding:10px;display:flex;flex-direction:column;gap:2px" aria-label="Documentos legales">
+<sc-for list="{{docs}}" as="d" hint-placeholder-count="4">
+<button type="button" class="doc {{d.cls}}" aria-pressed="{{d.on}}" onClick="{{d.pick}}">{{d.title}}</button>
+</sc-for>
+<hr style="border:0;border-top:1px solid #e4e4e7;width:100%">
+<a href="Ayuda.dc.html" style="padding:10px 14px;font-size:14px">¿Dudas legales? Contáctanos</a>
+</nav>
+
+<article style="flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:18px">
+<h1 style="font-size:34px;line-height:1.15;font-weight:800">{{doc.title}}</h1>
+<p class="muted" style="font-size:14px">Última actualización: [FECHA] · Versión [X.X] · <a href="Legal.dc.html">Descargar PDF</a></p>
+<sc-if value="{{isCookies}}" hint-placeholder-val="{{ false }}">
+<div class="card" style="padding:20px;display:flex;flex-direction:column">
+<strong style="font-size:17px;margin-bottom:6px">Preferencias de cookies</strong>
+<label class="sw"><span><strong>Necesarias</strong><br><span class="muted" style="font-size:14px">Imprescindibles para el funcionamiento. Siempre activas.</span></span><input type="checkbox" disabled="{{ true }}" checked="{{ true }}"></label>
+<label class="sw"><span><strong>Analíticas</strong><br><span class="muted" style="font-size:14px">Nos ayudan a mejorar el sitio.</span></span><input type="checkbox"></label>
+<label class="sw"><span><strong>Marketing</strong><br><span class="muted" style="font-size:14px">Contenido y anuncios relevantes.</span></span><input type="checkbox"></label>
+<div style="display:flex;gap:10px;flex-wrap:wrap;padding-top:14px"><button type="button" class="btn">Guardar preferencias</button><button type="button" class="btn2">Rechazar opcionales</button></div>
+</div>
+</sc-if>
+<sc-for list="{{doc.sections}}" as="s" hint-placeholder-count="4">
+<section style="display:flex;flex-direction:column;gap:8px">
+<h2 style="font-size:20px">{{s}}</h2>
+<div class="line" style="width:100%"></div><div class="line" style="width:96%"></div><div class="line" style="width:88%"></div><div class="line" style="width:62%"></div>
+</section>
+</sc-for>
+</article>
+</section>
+</main>
+
+<footer style="background:#f4f4f5;border-top:1px solid #d4d4d8;margin-top:64px">
+<div class="wrap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:28px;padding-top:40px;padding-bottom:24px">
+<div style="display:flex;flex-direction:column;gap:10px"><a href="Main.dc.html" class="logo" aria-label="Inicio">LOGO</a><p class="muted" style="font-size:14px">Consultoría empresarial para pymes y grandes empresas.</p></div>
+<nav class="fcol" aria-label="Plataforma"><strong>Plataforma</strong><a href="Catalogo.dc.html">Catálogo de soluciones</a><a href="Industrias.dc.html">Soluciones por industria</a><a href="Diagnostico.dc.html">Diagnóstico empresarial</a><a href="Solicitud.dc.html">Solicitar asesoría</a></nav>
+<nav class="fcol" aria-label="Empresa"><strong>Empresa</strong><a href="Nosotros.dc.html">Nosotros</a><a href="Casos.dc.html">Casos de éxito</a><a href="Recursos.dc.html">Recursos y blog</a></nav>
+<nav class="fcol" aria-label="Soporte"><strong>Soporte</strong><a href="Ayuda.dc.html">Centro de atención</a><a href="Login.dc.html">Acceso clientes y asesores</a><a href="Legal.dc.html">Términos y privacidad</a></nav>
+</div>
+<div class="wrap muted" style="font-size:13px;padding-top:16px;padding-bottom:24px">© [AÑO] [NOMBRE DE LA EMPRESA] · <a href="Legal.dc.html">Aviso legal</a> · <a href="Legal.dc.html">Cookies</a></div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const sel = (this.state && this.state.sel) || 0;
+    const docs = [
+      { title: 'Términos y condiciones', sections: ['1. Objeto del servicio', '2. Registro y cuentas', '3. Contratación y pagos', '4. Responsabilidades'] },
+      { title: 'Política de privacidad', sections: ['1. Responsable del tratamiento', '2. Datos que recopilamos', '3. Finalidad y base legal', '4. Derechos de las personas usuarias'] },
+      { title: 'Política de cookies', sections: ['1. Qué son las cookies', '2. Cookies que utilizamos'] },
+      { title: 'Aviso legal', sections: ['1. Datos de la empresa', '2. Propiedad intelectual', '3. Legislación aplicable'] }
+    ];
+    return {
+      doc: docs[sel],
+      isCookies: sel === 2,
+      docs: docs.map((d, i) => ({ title: d.title, on: i === sel ? 'true' : 'false', cls: i === sel ? 'on' : '', pick: () => this.setState({ sel: i }) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

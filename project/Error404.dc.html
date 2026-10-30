@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Página no encontrada</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#18181b;background:#ffffff;line-height:1.5}
+*{box-sizing:border-box}
+h1,h2,h3,h4,p{margin:0}
+a{color:#1d4ed8}a:hover{color:#1e3a8a}
+.logo{display:inline-flex;align-items:center;justify-content:center;width:112px;height:40px;border:2px solid #18181b;border-radius:4px;color:#18181b;text-decoration:none;font-weight:800;letter-spacing:.14em;font-size:13px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;border-radius:6px;background:#1d4ed8;color:#ffffff;border:1px solid #1d4ed8;text-decoration:none;font:inherit;font-size:15px;font-weight:600;cursor:pointer}
+.btn:hover{background:#1e3a8a;color:#ffffff}
+.btn2{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;border-radius:6px;background:#ffffff;color:#18181b;border:1px solid #a1a1aa;text-decoration:none;font:inherit;font-size:15px;font-weight:600;cursor:pointer}
+.btn2:hover{background:#f4f4f5;color:#18181b}
+.ph{display:flex;align-items:center;justify-content:center;text-align:center;padding:8px;color:#52525b;font-size:13px;background-color:#ececee;background-image:repeating-linear-gradient(45deg,transparent 0 14px,rgba(0,0,0,.05) 14px 28px);border:1px dashed #a1a1aa;border-radius:6px}
+.muted{color:#52525b}
+.field{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600}
+.field input{min-height:44px;padding:10px 12px;border:1px solid #a1a1aa;border-radius:6px;font:inherit;font-size:15px;font-weight:400;background:#ffffff;color:#18181b}
+.quick{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;font-size:15px}
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;flex-direction:column">
+<header style="border-bottom:1px solid #d4d4d8">
+<div style="max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+<a href="Main.dc.html" class="logo" aria-label="Inicio">LOGO</a>
+<a href="Ayuda.dc.html" style="font-size:14px">Centro de atención</a>
+</div>
+</header>
+<main style="flex:1;max-width:720px;width:100%;margin:0 auto;padding:56px 24px;display:flex;flex-direction:column;gap:20px;align-items:center;text-align:center">
+<div class="ph" style="width:220px;height:140px">Ilustración</div>
+<p style="font-size:64px;font-weight:800;line-height:1">404</p>
+<h1 style="font-size:28px">No encontramos esta página</h1>
+<p class="muted" style="font-size:17px">Puede que el enlace haya cambiado o que la página ya no exista. Prueba con la búsqueda o vuelve al inicio.</p>
+<label class="field" style="width:100%;max-width:480px;text-align:left">Buscar en el sitio<input type="search" placeholder="Soluciones, industrias, ayuda…"></label>
+<div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center"><a href="Main.dc.html" class="btn">Ir al inicio</a><a href="Catalogo.dc.html" class="btn2">Ver soluciones</a></div>
+<nav class="quick" aria-label="Accesos rápidos"><a href="Diagnostico.dc.html">Diagnóstico</a><a href="Industrias.dc.html">Industrias</a><a href="Solicitud.dc.html">Solicitar asesoría</a><a href="Ayuda.dc.html">Ayuda</a><a href="Mapa.dc.html">Mapa del sitio</a></nav>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

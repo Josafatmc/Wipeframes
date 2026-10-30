@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Mapa del sitio</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#18181b;background:#ffffff;line-height:1.5}
+*{box-sizing:border-box}
+h1,h2,h3,h4,p{margin:0}
+a{color:#1d4ed8}a:hover{color:#1e3a8a}
+.muted{color:#52525b}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#52525b}
+.h2{font-size:26px;line-height:1.2;font-weight:700}
+.col{border:1px solid #d4d4d8;border-radius:10px;background:#fafafa;padding:16px;display:flex;flex-direction:column;gap:8px}
+.colh{display:flex;flex-direction:column;gap:2px;padding-bottom:10px;margin-bottom:4px;border-bottom:2px solid #18181b}
+.node{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border:1px solid #a1a1aa;border-radius:6px;background:#ffffff;text-decoration:none;color:#18181b;min-height:44px}
+.node:hover{border-color:#1d4ed8;color:#18181b;background:#eff6ff}
+.node strong{font-size:14px}
+.node code,.route{font-family:ui-monospace,Consolas,monospace;font-size:12px;color:#3f3f46}
+.sub{margin-left:16px;border-left:2px solid #d4d4d8;padding-left:10px;display:flex;flex-direction:column;gap:6px}
+.sub span{font-size:13px;color:#3f3f46}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:14px 16px;border:1px solid #d4d4d8;border-radius:8px}
+.flow .who{font-weight:700;font-size:14px;min-width:240px}
+.step{display:inline-flex;align-items:center;min-height:36px;padding:0 12px;border-radius:999px;border:1px solid #a1a1aa;background:#ffffff;color:#18181b;text-decoration:none;font-size:13px}
+.step:hover{border-color:#1d4ed8;background:#eff6ff;color:#18181b}
+.arr{color:#52525b;font-size:14px}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:760px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid #e4e4e7;vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:#3f3f46;background:#f4f4f5}
+.lg{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:#3f3f46}
+.sw{display:inline-block;width:28px;height:18px;border-radius:4px}
+</style>
+</helmet>
+<div style="max-width:1520px;margin:0 auto;padding:40px 32px 56px;display:flex;flex-direction:column;gap:48px">
+
+<header style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:flex-end;border-bottom:1px solid #d4d4d8;padding-bottom:24px">
+<div style="display:flex;flex-direction:column;gap:6px">
+<span class="eyebrow">Wireframe v1.0 · Baja fidelidad</span>
+<h1 style="font-size:36px;line-height:1.15;font-weight:800">Plataforma de consultoría empresarial — Mapa del sitio</h1>
+<p class="muted" style="font-size:16px;max-width:820px">Arquitectura de información, rutas previstas y recorridos de navegación para los cuatro perfiles: visitante, cliente, persona asesora y administración. Cada caja enlaza con su pantalla.</p>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:16px">
+<span class="lg"><span class="sw" style="background:#1d4ed8"></span>Acción principal</span>
+<span class="lg"><span class="sw" style="border:1px solid #a1a1aa;background:#ffffff"></span>Acción secundaria</span>
+<span class="lg"><span class="sw" style="border:1px dashed #a1a1aa;background:#ececee"></span>Imagen / medio</span>
+<span class="lg"><code class="route">[TEXTO]</code>Dato pendiente</span>
+</div>
+</header>
+
+<section style="display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;flex-direction:column;gap:4px"><span class="eyebrow">1 · Arquitectura de información</span><h2 class="h2">Mapa del sitio por zona y perfil</h2></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;align-items:start">
+
+<nav class="col" aria-label="Sitio público">
+<div class="colh"><strong style="font-size:16px">Sitio público</strong><span class="muted" style="font-size:13px">Visitante · sin sesión</span></div>
+<a class="node" href="Main.dc.html"><strong>01 Inicio</strong><code>/</code></a>
+<a class="node" href="Catalogo.dc.html"><strong>02 Catálogo de soluciones</strong><code>/soluciones</code></a>
+<a class="node" href="Servicio.dc.html"><strong>03 Detalle del servicio</strong><code>/soluciones/:servicio</code></a>
+<a class="node" href="Industrias.dc.html"><strong>04 Soluciones por industria</strong><code>/industrias/:industria</code></a>
+<a class="node" href="Diagnostico.dc.html"><strong>05 Diagnóstico empresarial</strong><code>/diagnostico</code></a>
+<a class="node" href="Solicitud.dc.html"><strong>06 Solicitud de asesoría</strong><code>/asesoria/solicitar</code></a>
+<a class="node" href="Casos.dc.html"><strong>09 Casos de éxito</strong><code>/casos</code></a>
+<a class="node" href="Recursos.dc.html"><strong>10 Recursos y blog</strong><code>/recursos</code></a>
+<a class="node" href="Nosotros.dc.html"><strong>11 Nosotros y equipo</strong><code>/nosotros</code></a>
+<a class="node" href="Legal.dc.html"><strong>12 Legal</strong><code>/legal/:documento</code></a>
+<a class="node" href="Error404.dc.html"><strong>13 Error 404</strong><code>/*</code></a>
+</nav>
+
+<div style="display:flex;flex-direction:column;gap:16px">
+<nav class="col" aria-label="Acceso">
+<div class="colh"><strong style="font-size:16px">Acceso</strong><span class="muted" style="font-size:13px">Puerta a las zonas privadas</span></div>
+<a class="node" href="Login.dc.html"><strong>07 Iniciar sesión</strong><code>/acceso</code></a>
+<a class="node" href="Login.dc.html"><strong>07 Registro de empresa</strong><code>/registro</code></a>
+<a class="node" href="Login.dc.html"><strong>07 Recuperar contraseña</strong><code>/acceso/recuperar</code></a>
+</nav>
+<nav class="col" aria-label="Soporte">
+<div class="colh"><strong style="font-size:16px">Centro de atención</strong><span class="muted" style="font-size:13px">Todos los perfiles</span></div>
+<a class="node" href="Ayuda.dc.html"><strong>08 Centro de atención</strong><code>/ayuda</code></a>
+<div class="sub"><span>Preguntas frecuentes · <code class="route">/ayuda/faq</code></span><span>Nuevo ticket · <code class="route">/ayuda/tickets/nuevo</code></span><span>Seguimiento de ticket · <code class="route">/ayuda/tickets/:id</code></span><span>Contacto y chat · <code class="route">/ayuda/contacto</code></span></div>
+</nav>
+</div>
+
+<nav class="col" aria-label="Panel del cliente">
+<div class="colh"><strong style="font-size:16px">Panel del cliente</strong><span class="muted" style="font-size:13px">Rol: cliente · <code class="route">/cliente</code></span></div>
+<a class="node" href="PanelCliente.dc.html"><strong>14 Panel del cliente</strong><code>/cliente/resumen</code></a>
+<div class="sub"><span>Mis proyectos · <code class="route">/cliente/proyectos/:id</code></span><span>Sesiones · <code class="route">/cliente/sesiones</code></span><span>Diagnósticos · <code class="route">/cliente/diagnosticos</code></span><span>Documentos · <code class="route">/cliente/documentos</code></span><span>Facturación · <code class="route">/cliente/facturacion</code></span><span>Mensajes · <code class="route">/cliente/mensajes</code></span><span>Perfil y empresa · <code class="route">/cliente/perfil</code></span></div>
+</nav>
+
+<nav class="col" aria-label="Panel de la persona asesora">
+<div class="colh"><strong style="font-size:16px">Panel de la persona asesora</strong><span class="muted" style="font-size:13px">Rol: asesor · <code class="route">/asesor</code></span></div>
+<a class="node" href="PanelAsesor.dc.html"><strong>15 Panel del asesor</strong><code>/asesor/agenda</code></a>
+<div class="sub"><span>Solicitudes asignadas · <code class="route">/asesor/solicitudes</code></span><span>Clientes · <code class="route">/asesor/clientes/:id</code></span><span>Informes y entregables · <code class="route">/asesor/informes</code></span><span>Disponibilidad · <code class="route">/asesor/disponibilidad</code></span><span>Mensajes · <code class="route">/asesor/mensajes</code></span><span>Perfil profesional · <code class="route">/asesor/perfil</code></span></div>
+</nav>
+
+<nav class="col" aria-label="Panel de administración">
+<div class="colh"><strong style="font-size:16px">Panel de administración</strong><span class="muted" style="font-size:13px">Rol: administrador · <code class="route">/admin</code></span></div>
+<a class="node" href="PanelAdmin.dc.html"><strong>16 Panel de administración</strong><code>/admin/dashboard</code></a>
+<div class="sub"><span>Solicitudes y asignación · <code class="route">/admin/solicitudes</code></span><span>Usuarios y roles · <code class="route">/admin/usuarios</code></span><span>Catálogo de servicios · <code class="route">/admin/catalogo</code></span><span>Industrias y contenidos · <code class="route">/admin/contenidos</code></span><span>Soporte (tickets) · <code class="route">/admin/soporte</code></span><span>Reportes · <code class="route">/admin/reportes</code></span><span>Configuración · <code class="route">/admin/configuracion</code></span></div>
+</nav>
+</div>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;flex-direction:column;gap:4px"><span class="eyebrow">2 · Recorridos de navegación</span><h2 class="h2">Rutas principales por perfil</h2></div>
+<div class="flow"><span class="who">R1 · Visitante — captación por diagnóstico</span><a class="step" href="Main.dc.html">Inicio</a><span class="arr" aria-hidden="true">→</span><a class="step" href="Diagnostico.dc.html">Diagnóstico (4 pasos)</a><span class="arr" aria-hidden="true">→</span><a class="step" href="Diagnostico.dc.html">Resultado y recomendaciones</a><span class="arr" aria-hidden="true">→</span><a class="step" href="Solicitud.dc.html">Solicitud de asesoría</a><span class="arr" aria-hidden="true">→</span><a class="step" href="Login.dc.html">Registro</a><span class="arr" aria-hidden="true">→</span><a class="step" href="PanelCliente.dc.html">Panel del cliente</a></div>
+<div class="flow"><span class="who">R2 · Visitante — exploración del catálogo</span><a class="step" href="Main.dc.html">Inicio</a><span class="arr" aria-hidden="true">→</span><a class="step" href="Catalogo.dc.html">Catálogo (filtros)</a><span class="arr" aria-hidden="true">→</span><a class="step" href="Servicio.dc.html">Detalle del servicio</a><span class="arr" aria-hidden="true">→</span><a class="step" href="Solicitud.dc.html">Solicitud de asesoría</a><span class="arr" aria-hidden="true">→</span><a class="step" href="Solicitud.dc.html">Confirmación</a></div>
+<div class="flow"><span class="who">R3 · Visitante — búsqueda por industria</span><a class="step" href="Main.dc.html">Inicio</a><span class="arr" aria-hidden="true">→</span><a class="step" href="Industrias.dc.html">Soluciones por industria</a><span class="arr" aria-hidden="true">→</span><a class="step" href="Servicio.dc.html">Servicio recomendado</a><span class="arr" aria-hidden="true">→</span><a class="step" href="Casos.dc.html">Caso de éxito del sector</a><span class="arr" aria-hidden="true">→</span><a class="step" href="Solicitud.dc.html">Solicitud</a></div>
+<div class="flow"><span class="who">R4 · Cliente — seguimiento y soporte</span><a class="step" href="Login.dc.html">Acceso</a><span class="arr" aria-hidden="true">→</span><a class="step" href="PanelCliente.dc.html">Resumen</a><span class="arr" aria-hidden="true">→</span><a class="step" href="PanelCliente.dc.html">Sesiones / Documentos</a><span class="arr" aria-hidden="true">→</span><a class="step" href="Ayuda.dc.html">Centro de atención (ticket)</a></div>
+<div class="flow"><span class="who">R5 · Persona asesora — atención</span><a class="step" href="Login.dc.html">Acceso</a><span class="arr" aria-hidden="true">→</span><a class="step" href="PanelAsesor.dc.html">Solicitudes asignadas</a><span class="arr" aria-hidden="true">→</span><a class="step" href="PanelAsesor.dc.html">Aceptar y agendar</a><span class="arr" aria-hidden="true">→</span><a class="step" href="PanelAsesor.dc.html">Agenda</a><span class="arr" aria-hidden="true">→</span><a class="step" href="PanelAsesor.dc.html">Informe al cliente</a></div>
+<div class="flow"><span class="who">R6 · Administración — operación</span><a class="step" href="Login.dc.html">Acceso</a><span class="arr" aria-hidden="true">→</span><a class="step" href="PanelAdmin.dc.html">Dashboard</a><span class="arr" aria-hidden="true">→</span><a class="step" href="PanelAdmin.dc.html">Asignar asesor</a><span class="arr" aria-hidden="true">→</span><a class="step" href="PanelAdmin.dc.html">Catálogo / Usuarios</a><span class="arr" aria-hidden="true">→</span><a class="step" href="PanelAdmin.dc.html">Reportes</a></div>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;flex-direction:column;gap:4px"><span class="eyebrow">3 · Control de acceso</span><h2 class="h2">Matriz de roles y permisos</h2></div>
+<div style="overflow-x:auto;border:1px solid #d4d4d8;border-radius:8px">
+<table>
+<thead><tr><th scope="col">Funcionalidad</th><th scope="col">Visitante</th><th scope="col">Cliente</th><th scope="col">Persona asesora</th><th scope="col">Administración</th></tr></thead>
+<tbody>
+<tr><td>Ver catálogo, industrias, casos y recursos</td><td>Sí</td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
+<tr><td>Realizar diagnóstico empresarial</td><td>Sí (resultado por correo)</td><td>Sí (se guarda en su panel)</td><td>—</td><td>Ver todos</td></tr>
+<tr><td>Solicitar asesoría</td><td>Sí (crea cuenta al confirmar)</td><td>Sí</td><td>—</td><td>Crear en nombre de un cliente</td></tr>
+<tr><td>Proyectos, sesiones y documentos</td><td>—</td><td>Solo los propios</td><td>Solo clientes asignados</td><td>Todos</td></tr>
+<tr><td>Agenda y disponibilidad</td><td>—</td><td>Reservar y reprogramar</td><td>Gestionar la propia</td><td>Gestionar todas</td></tr>
+<tr><td>Subir informes y entregables</td><td>—</td><td>Descargar</td><td>Sí</td><td>Sí</td></tr>
+<tr><td>Asignar asesores a solicitudes</td><td>—</td><td>—</td><td>Aceptar o rechazar</td><td>Sí</td></tr>
+<tr><td>Gestionar catálogo, contenidos, usuarios y roles</td><td>—</td><td>—</td><td>—</td><td>Sí</td></tr>
+<tr><td>Tickets de soporte</td><td>Crear sin cuenta</td><td>Crear y seguir</td><td>Responder de sus clientes</td><td>Gestionar todos</td></tr>
+<tr><td>Facturación y pagos</td><td>—</td><td>Ver y pagar</td><td>Ver honorarios propios</td><td>Gestionar</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1600,"height":2200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

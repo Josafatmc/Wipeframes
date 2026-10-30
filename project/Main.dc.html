@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Inicio</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#18181b;background:#ffffff;line-height:1.5}
+*{box-sizing:border-box}
+h1,h2,h3,h4,p{margin:0}
+a{color:#1d4ed8}a:hover{color:#1e3a8a}
+.wrap{max-width:1200px;margin-left:auto;margin-right:auto;padding-left:24px;padding-right:24px}
+.logo{display:inline-flex;align-items:center;justify-content:center;width:112px;height:40px;border:2px solid #18181b;border-radius:4px;color:#18181b;text-decoration:none;font-weight:800;letter-spacing:.14em;font-size:13px}
+.nav a{color:#27272a;text-decoration:none;font-size:15px;padding:10px 0}.nav a:hover{color:#1d4ed8}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;border-radius:6px;background:#1d4ed8;color:#ffffff;border:1px solid #1d4ed8;text-decoration:none;font:inherit;font-size:15px;font-weight:600;cursor:pointer}
+.btn:hover{background:#1e3a8a;color:#ffffff}
+.btn2{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;border-radius:6px;background:#ffffff;color:#18181b;border:1px solid #a1a1aa;text-decoration:none;font:inherit;font-size:15px;font-weight:600;cursor:pointer}
+.btn2:hover{background:#f4f4f5;color:#18181b}
+.ph{display:flex;align-items:center;justify-content:center;text-align:center;padding:8px;color:#52525b;font-size:13px;background-color:#ececee;background-image:repeating-linear-gradient(45deg,transparent 0 14px,rgba(0,0,0,.05) 14px 28px);border:1px dashed #a1a1aa;border-radius:6px}
+.card{border:1px solid #d4d4d8;border-radius:8px;background:#ffffff}
+.tag{display:inline-block;padding:2px 10px;border-radius:999px;background:#f4f4f5;border:1px solid #d4d4d8;font-size:12px;color:#3f3f46}
+.muted{color:#52525b}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#52525b}
+.h2{font-size:28px;line-height:1.2;font-weight:700}
+.sec{padding-top:64px}
+.fcol{display:flex;flex-direction:column;gap:8px;font-size:14px}.fcol a{color:#3f3f46;text-decoration:none}.fcol a:hover{color:#1d4ed8;text-decoration:underline}
+.more{font-weight:600;text-decoration:none}
+</style>
+</helmet>
+<div style="background:#ffffff">
+<header style="border-bottom:1px solid #d4d4d8;background:#ffffff">
+<div class="wrap" style="display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;padding-top:14px;padding-bottom:14px">
+<a href="Main.dc.html" class="logo" aria-label="Inicio">LOGO</a>
+<nav class="nav" aria-label="Principal" style="display:flex;flex-wrap:wrap;gap:0 22px;flex:1 1 480px">
+<a href="Catalogo.dc.html">Soluciones</a>
+<a href="Industrias.dc.html">Industrias</a>
+<a href="Diagnostico.dc.html">Diagnóstico</a>
+<a href="Casos.dc.html">Casos de éxito</a>
+<a href="Recursos.dc.html">Recursos</a>
+<a href="Nosotros.dc.html">Nosotros</a>
+<a href="Ayuda.dc.html">Ayuda</a>
+</nav>
+<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+<a href="Login.dc.html" class="btn2">Iniciar sesión</a>
+<a href="Solicitud.dc.html" class="btn">Solicitar asesoría</a>
+</div>
+</div>
+</header>
+
+<main>
+<section style="background:#f4f4f5;border-bottom:1px solid #e4e4e7">
+<div class="wrap" style="display:flex;flex-wrap:wrap;align-items:center;gap:40px;padding-top:64px;padding-bottom:64px">
+<div style="flex:1 1 460px;display:flex;flex-direction:column;gap:20px">
+<span class="eyebrow">Consultoría empresarial</span>
+<h1 style="font-size:46px;line-height:1.1;font-weight:800">Soluciones de consultoría para que tu empresa crezca con rumbo claro</h1>
+<p class="muted" style="font-size:18px;max-width:560px">Descubre en minutos qué necesita tu negocio con un diagnóstico gratuito y trabaja con personas asesoras especializadas en tu industria.</p>
+<div style="display:flex;flex-wrap:wrap;gap:12px">
+<a href="Diagnostico.dc.html" class="btn">Hacer diagnóstico gratuito</a>
+<a href="Catalogo.dc.html" class="btn2">Ver catálogo de soluciones</a>
+</div>
+<p class="muted" style="font-size:14px">Sin compromiso · Resultado inmediato · [N] empresas asesoradas</p>
+</div>
+<div class="ph" style="flex:1 1 420px;height:360px">Imagen o video principal<br>(equipo asesor trabajando con cliente)</div>
+</div>
+</section>
+
+<section class="wrap" style="padding-top:40px" aria-label="Clientes">
+<p class="muted" style="font-size:13px;text-align:center;margin-bottom:16px">Empresas que confían en nosotros</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px">
+<div class="ph" style="height:56px">Logo cliente</div>
+<div class="ph" style="height:56px">Logo cliente</div>
+<div class="ph" style="height:56px">Logo cliente</div>
+<div class="ph" style="height:56px">Logo cliente</div>
+<div class="ph" style="height:56px">Logo cliente</div>
+<div class="ph" style="height:56px">Logo cliente</div>
+</div>
+</section>
+
+<section class="wrap sec">
+<div style="display:flex;flex-direction:column;gap:8px;margin-bottom:28px">
+<span class="eyebrow">Cómo funciona</span>
+<h2 class="h2">Cuatro pasos para pasar del problema al resultado</h2>
+</div>
+<ol style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px">
+<li class="card" style="padding:24px;display:flex;flex-direction:column;gap:10px"><span style="font-size:13px;font-weight:700;color:#1d4ed8">PASO 1</span><h3 style="font-size:18px">Diagnóstico</h3><p class="muted" style="font-size:15px">Responde un cuestionario breve y obtén un informe con tus prioridades.</p><a class="more" href="Diagnostico.dc.html">Empezar diagnóstico →</a></li>
+<li class="card" style="padding:24px;display:flex;flex-direction:column;gap:10px"><span style="font-size:13px;font-weight:700;color:#1d4ed8">PASO 2</span><h3 style="font-size:18px">Propuesta</h3><p class="muted" style="font-size:15px">Te recomendamos las soluciones del catálogo que encajan con tu caso.</p><a class="more" href="Catalogo.dc.html">Ver soluciones →</a></li>
+<li class="card" style="padding:24px;display:flex;flex-direction:column;gap:10px"><span style="font-size:13px;font-weight:700;color:#1d4ed8">PASO 3</span><h3 style="font-size:18px">Asesoría</h3><p class="muted" style="font-size:15px">Agenda una sesión con una persona asesora experta en tu industria.</p><a class="more" href="Solicitud.dc.html">Solicitar asesoría →</a></li>
+<li class="card" style="padding:24px;display:flex;flex-direction:column;gap:10px"><span style="font-size:13px;font-weight:700;color:#1d4ed8">PASO 4</span><h3 style="font-size:18px">Seguimiento</h3><p class="muted" style="font-size:15px">Sigue el avance, documentos y sesiones desde tu panel de cliente.</p><a class="more" href="Login.dc.html">Acceder al panel →</a></li>
+</ol>
+</section>
+
+<section class="wrap sec">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:28px">
+<div style="display:flex;flex-direction:column;gap:8px"><span class="eyebrow">Catálogo</span><h2 class="h2">Soluciones destacadas</h2></div>
+<a class="more" href="Catalogo.dc.html">Ver catálogo completo →</a>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px">
+<sc-for list="{{featured}}" as="s" hint-placeholder-count="6">
+<a href="Servicio.dc.html" class="card" style="padding:20px;display:flex;flex-direction:column;gap:12px;text-decoration:none;color:#18181b">
+<div class="ph" style="height:44px;width:44px;padding:0">Ícono</div>
+<span class="tag" style="align-self:flex-start">{{s.cat}}</span>
+<h3 style="font-size:18px">{{s.name}}</h3>
+<p class="muted" style="font-size:15px">{{s.desc}}</p>
+<span style="color:#1d4ed8;font-weight:600;font-size:15px">Ver detalle →</span>
+</a>
+</sc-for>
+</div>
+</section>
+
+<section class="wrap sec">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:28px">
+<div style="display:flex;flex-direction:column;gap:8px"><span class="eyebrow">Industrias</span><h2 class="h2">Soluciones adaptadas a tu sector</h2></div>
+<a class="more" href="Industrias.dc.html">Ver todas las industrias →</a>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px">
+<sc-for list="{{industries}}" as="i" hint-placeholder-count="8">
+<a href="Industrias.dc.html" class="card" style="padding:16px;display:flex;flex-direction:column;gap:10px;text-decoration:none;color:#18181b">
+<div class="ph" style="height:72px">Imagen</div>
+<strong style="font-size:15px">{{i}}</strong>
+</a>
+</sc-for>
+</div>
+</section>
+
+<section class="wrap sec">
+<div style="background:#18181b;color:#ffffff;border-radius:12px;padding:40px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px">
+<div style="flex:1 1 420px;display:flex;flex-direction:column;gap:8px">
+<h2 class="h2">¿No sabes por dónde empezar?</h2>
+<p style="color:#d4d4d8;font-size:17px">El diagnóstico empresarial evalúa 6 áreas de tu negocio y te propone un plan de acción en [N] minutos.</p>
+</div>
+<a href="Diagnostico.dc.html" style="display:inline-flex;align-items:center;min-height:48px;padding:0 24px;border-radius:6px;background:#ffffff;color:#18181b;font-weight:700;text-decoration:none">Iniciar diagnóstico gratuito</a>
+</div>
+</section>
+
+<section class="wrap sec">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:28px">
+<div style="display:flex;flex-direction:column;gap:8px"><span class="eyebrow">Resultados</span><h2 class="h2">Casos de éxito</h2></div>
+<a class="more" href="Casos.dc.html">Ver todos los casos →</a>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px">
+<article class="card" style="overflow:hidden;display:flex;flex-direction:column"><div class="ph" style="height:160px;border-radius:0;border:0">Imagen del caso</div><div style="padding:20px;display:flex;flex-direction:column;gap:8px"><span class="tag" style="align-self:flex-start">Manufactura</span><h3 style="font-size:18px">[Empresa]: reducción de costos operativos</h3><p class="muted" style="font-size:15px">Resultado clave: [X]% en [N] meses.</p><a class="more" href="Casos.dc.html">Leer caso →</a></div></article>
+<article class="card" style="overflow:hidden;display:flex;flex-direction:column"><div class="ph" style="height:160px;border-radius:0;border:0">Imagen del caso</div><div style="padding:20px;display:flex;flex-direction:column;gap:8px"><span class="tag" style="align-self:flex-start">Retail</span><h3 style="font-size:18px">[Empresa]: canal de venta digital</h3><p class="muted" style="font-size:15px">Resultado clave: [X]% en [N] meses.</p><a class="more" href="Casos.dc.html">Leer caso →</a></div></article>
+<article class="card" style="overflow:hidden;display:flex;flex-direction:column"><div class="ph" style="height:160px;border-radius:0;border:0">Imagen del caso</div><div style="padding:20px;display:flex;flex-direction:column;gap:8px"><span class="tag" style="align-self:flex-start">Salud</span><h3 style="font-size:18px">[Empresa]: control financiero</h3><p class="muted" style="font-size:15px">Resultado clave: [X]% en [N] meses.</p><a class="more" href="Casos.dc.html">Leer caso →</a></div></article>
+</div>
+</section>
+
+<section class="wrap sec">
+<div class="card" style="padding:32px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;background:#f4f4f5">
+<div style="flex:1 1 380px;display:flex;flex-direction:column;gap:6px"><h2 style="font-size:22px">¿Tienes dudas?</h2><p class="muted">Consulta las preguntas frecuentes, abre un ticket o escríbenos por chat.</p></div>
+<div style="display:flex;gap:12px;flex-wrap:wrap"><a href="Ayuda.dc.html" class="btn2">Centro de atención</a><a href="Solicitud.dc.html" class="btn">Hablar con una persona asesora</a></div>
+</div>
+</section>
+</main>
+
+<footer style="background:#f4f4f5;border-top:1px solid #d4d4d8;margin-top:64px">
+<div class="wrap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:28px;padding-top:40px;padding-bottom:24px">
+<div style="display:flex;flex-direction:column;gap:10px"><a href="Main.dc.html" class="logo" aria-label="Inicio">LOGO</a><p class="muted" style="font-size:14px">Consultoría empresarial para pymes y grandes empresas.</p></div>
+<nav class="fcol" aria-label="Plataforma"><strong>Plataforma</strong><a href="Catalogo.dc.html">Catálogo de soluciones</a><a href="Industrias.dc.html">Soluciones por industria</a><a href="Diagnostico.dc.html">Diagnóstico empresarial</a><a href="Solicitud.dc.html">Solicitar asesoría</a></nav>
+<nav class="fcol" aria-label="Empresa"><strong>Empresa</strong><a href="Nosotros.dc.html">Nosotros</a><a href="Casos.dc.html">Casos de éxito</a><a href="Recursos.dc.html">Recursos y blog</a></nav>
+<nav class="fcol" aria-label="Soporte"><strong>Soporte</strong><a href="Ayuda.dc.html">Centro de atención</a><a href="Login.dc.html">Acceso clientes y asesores</a><a href="Legal.dc.html">Términos y privacidad</a></nav>
+</div>
+<div class="wrap muted" style="font-size:13px;padding-top:16px;padding-bottom:24px">© [AÑO] [NOMBRE DE LA EMPRESA] · <a href="Legal.dc.html">Aviso legal</a> · <a href="Legal.dc.html">Cookies</a></div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":2700}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      featured: [
+        { cat: 'Estrategia', name: 'Planificación estratégica', desc: 'Define objetivos, prioridades y hoja de ruta a 12–36 meses.' },
+        { cat: 'Digital', name: 'Transformación digital', desc: 'Digitaliza procesos y adopta las herramientas adecuadas.' },
+        { cat: 'Finanzas', name: 'Finanzas y control de gestión', desc: 'Presupuestos, flujo de caja e indicadores para decidir.' },
+        { cat: 'Comercial', name: 'Marketing y ventas', desc: 'Estrategia comercial, embudo de ventas y captación.' },
+        { cat: 'Personas', name: 'Talento y cultura', desc: 'Estructura organizacional, liderazgo y desempeño.' },
+        { cat: 'Operaciones', name: 'Optimización de procesos', desc: 'Mejora continua para reducir costos y tiempos.' }
+      ],
+      industries: ['Manufactura', 'Comercio minorista', 'Salud', 'Servicios financieros', 'Tecnología', 'Logística', 'Agroindustria', 'Educación']
+    };
+  }
+}
+</script>
+</body>
+</html>

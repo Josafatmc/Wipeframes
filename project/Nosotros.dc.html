@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Nosotros y equipo</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#18181b;background:#ffffff;line-height:1.5}
+*{box-sizing:border-box}
+h1,h2,h3,h4,p{margin:0}
+a{color:#1d4ed8}a:hover{color:#1e3a8a}
+.wrap{max-width:1200px;margin-left:auto;margin-right:auto;padding-left:24px;padding-right:24px}
+.logo{display:inline-flex;align-items:center;justify-content:center;width:112px;height:40px;border:2px solid #18181b;border-radius:4px;color:#18181b;text-decoration:none;font-weight:800;letter-spacing:.14em;font-size:13px}
+.nav a{color:#27272a;text-decoration:none;font-size:15px;padding:10px 0}.nav a:hover{color:#1d4ed8}
+.nav a[aria-current]{font-weight:700;color:#18181b;border-bottom:2px solid #18181b}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;border-radius:6px;background:#1d4ed8;color:#ffffff;border:1px solid #1d4ed8;text-decoration:none;font:inherit;font-size:15px;font-weight:600;cursor:pointer}
+.btn:hover{background:#1e3a8a;color:#ffffff}
+.btn2{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;border-radius:6px;background:#ffffff;color:#18181b;border:1px solid #a1a1aa;text-decoration:none;font:inherit;font-size:15px;font-weight:600;cursor:pointer}
+.btn2:hover{background:#f4f4f5;color:#18181b}
+.ph{display:flex;align-items:center;justify-content:center;text-align:center;padding:8px;color:#52525b;font-size:13px;background-color:#ececee;background-image:repeating-linear-gradient(45deg,transparent 0 14px,rgba(0,0,0,.05) 14px 28px);border:1px dashed #a1a1aa;border-radius:6px}
+.card{border:1px solid #d4d4d8;border-radius:8px;background:#ffffff}
+.tag{display:inline-block;padding:2px 10px;border-radius:999px;background:#f4f4f5;border:1px solid #d4d4d8;font-size:12px;color:#3f3f46}
+.muted{color:#52525b}
+.crumbs{font-size:13px;color:#52525b;padding-top:16px}.crumbs a{color:#52525b}
+.h2{font-size:26px;line-height:1.2;font-weight:700;margin-bottom:18px}
+.fcol{display:flex;flex-direction:column;gap:8px;font-size:14px}.fcol a{color:#3f3f46;text-decoration:none}.fcol a:hover{color:#1d4ed8;text-decoration:underline}
+</style>
+</helmet>
+<div style="background:#ffffff">
+<header style="border-bottom:1px solid #d4d4d8;background:#ffffff">
+<div class="wrap" style="display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;padding-top:14px;padding-bottom:14px">
+<a href="Main.dc.html" class="logo" aria-label="Inicio">LOGO</a>
+<nav class="nav" aria-label="Principal" style="display:flex;flex-wrap:wrap;gap:0 22px;flex:1 1 480px">
+<a href="Catalogo.dc.html">Soluciones</a>
+<a href="Industrias.dc.html">Industrias</a>
+<a href="Diagnostico.dc.html">Diagnóstico</a>
+<a href="Casos.dc.html">Casos de éxito</a>
+<a href="Recursos.dc.html">Recursos</a>
+<a href="Nosotros.dc.html" aria-current="page">Nosotros</a>
+<a href="Ayuda.dc.html">Ayuda</a>
+</nav>
+<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+<a href="Login.dc.html" class="btn2">Iniciar sesión</a>
+<a href="Solicitud.dc.html" class="btn">Solicitar asesoría</a>
+</div>
+</div>
+</header>
+
+<main>
+<nav class="wrap crumbs" aria-label="Ruta de navegación"><a href="Main.dc.html">Inicio</a> / Nosotros</nav>
+<section class="wrap" style="padding-top:24px;display:flex;flex-wrap:wrap;gap:40px;align-items:center">
+<div style="flex:1 1 440px;display:flex;flex-direction:column;gap:14px">
+<h1 style="font-size:38px;line-height:1.15;font-weight:800">Personas expertas que acompañan a tu empresa</h1>
+<p class="muted" style="font-size:17px">[Historia de la firma en 2–3 líneas: año de fundación, propósito y a quién sirve.]</p>
+<div style="display:flex;gap:10px;flex-wrap:wrap"><a href="#equipo" class="btn2">Conocer al equipo</a><a href="Solicitud.dc.html" class="btn">Hablar con una persona asesora</a></div>
+</div>
+<div class="ph" style="flex:1 1 400px;height:300px">Foto del equipo</div>
+</section>
+
+<section class="wrap" style="padding-top:56px">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+<div class="card" style="padding:22px;display:flex;flex-direction:column;gap:8px"><strong style="font-size:18px">Misión</strong><p class="muted">[Texto de misión]</p></div>
+<div class="card" style="padding:22px;display:flex;flex-direction:column;gap:8px"><strong style="font-size:18px">Visión</strong><p class="muted">[Texto de visión]</p></div>
+<div class="card" style="padding:22px;display:flex;flex-direction:column;gap:8px"><strong style="font-size:18px">Valores</strong><p class="muted">[Valor 1] · [Valor 2] · [Valor 3] · [Valor 4]</p></div>
+</div>
+</section>
+
+<section class="wrap" style="padding-top:56px" id="equipo">
+<div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:12px"><h2 class="h2">Equipo de personas asesoras</h2><span class="muted" style="font-size:14px">[N] especialistas en [N] industrias</span></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px">
+<sc-for list="{{team}}" as="p" hint-placeholder-count="8">
+<article class="card" style="padding:18px;display:flex;flex-direction:column;gap:8px;align-items:flex-start">
+<div class="ph" style="width:88px;height:88px;border-radius:999px;padding:0">Foto</div>
+<strong style="font-size:16px">[Nombre Apellido]</strong>
+<span class="muted" style="font-size:14px">{{p.role}}</span>
+<div style="display:flex;gap:6px;flex-wrap:wrap"><span class="tag">{{p.area}}</span><span class="tag">[N] años</span></div>
+<a href="Solicitud.dc.html" style="font-size:14px;font-weight:600">Agendar con esta persona →</a>
+</article>
+</sc-for>
+</div>
+</section>
+
+<section class="wrap" style="padding-top:56px">
+<h2 class="h2">Certificaciones y alianzas</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px">
+<div class="ph" style="height:64px">Sello / certificación</div>
+<div class="ph" style="height:64px">Sello / certificación</div>
+<div class="ph" style="height:64px">Alianza</div>
+<div class="ph" style="height:64px">Alianza</div>
+<div class="ph" style="height:64px">Gremio</div>
+</div>
+</section>
+
+<section class="wrap" style="padding-top:56px">
+<div style="border-radius:12px;background:#18181b;color:#ffffff;padding:32px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between">
+<div style="flex:1 1 400px"><h2 style="font-size:24px">¿Eres consultor o consultora?</h2><p style="color:#d4d4d8">Únete a la red de personas asesoras y recibe solicitudes de empresas de tu especialidad.</p></div>
+<a href="Ayuda.dc.html" style="display:inline-flex;align-items:center;min-height:48px;padding:0 24px;border-radius:6px;background:#ffffff;color:#18181b;font-weight:700;text-decoration:none">Postular como asesor/a</a>
+</div>
+</section>
+</main>
+
+<footer style="background:#f4f4f5;border-top:1px solid #d4d4d8;margin-top:64px">
+<div class="wrap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:28px;padding-top:40px;padding-bottom:24px">
+<div style="display:flex;flex-direction:column;gap:10px"><a href="Main.dc.html" class="logo" aria-label="Inicio">LOGO</a><p class="muted" style="font-size:14px">Consultoría empresarial para pymes y grandes empresas.</p></div>
+<nav class="fcol" aria-label="Plataforma"><strong>Plataforma</strong><a href="Catalogo.dc.html">Catálogo de soluciones</a><a href="Industrias.dc.html">Soluciones por industria</a><a href="Diagnostico.dc.html">Diagnóstico empresarial</a><a href="Solicitud.dc.html">Solicitar asesoría</a></nav>
+<nav class="fcol" aria-label="Empresa"><strong>Empresa</strong><a href="Nosotros.dc.html">Nosotros</a><a href="Casos.dc.html">Casos de éxito</a><a href="Recursos.dc.html">Recursos y blog</a></nav>
+<nav class="fcol" aria-label="Soporte"><strong>Soporte</strong><a href="Ayuda.dc.html">Centro de atención</a><a href="Login.dc.html">Acceso clientes y asesores</a><a href="Legal.dc.html">Términos y privacidad</a></nav>
+</div>
+<div class="wrap muted" style="font-size:13px;padding-top:16px;padding-bottom:24px">© [AÑO] [NOMBRE DE LA EMPRESA] · <a href="Legal.dc.html">Aviso legal</a> · <a href="Legal.dc.html">Cookies</a></div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      team: [
+        { role: 'Socia directora', area: 'Estrategia' },
+        { role: 'Asesor senior', area: 'Finanzas' },
+        { role: 'Asesora senior', area: 'Digital' },
+        { role: 'Asesor', area: 'Comercial' },
+        { role: 'Asesora', area: 'Personas' },
+        { role: 'Asesor', area: 'Operaciones' },
+        { role: 'Asesora', area: 'Cumplimiento' },
+        { role: 'Asesor', area: 'Datos e IA' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
